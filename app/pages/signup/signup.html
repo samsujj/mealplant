@@ -1,0 +1,58 @@
+<ion-header class="hide">
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hello Ionic</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="getting-started">
+
+  <h3>Welcome to your first Ionic app! ????????????<!----></h3>
+
+  <p>
+    This starter project is our way of helping you get a functional app running in record time.
+  </p>
+  <p>
+    Follow along on the tutorial section of the Ionic docs!
+  </p>
+
+
+  <form novalidate [formGroup]="loginForm" (ngSubmit)="doSubmit(loginForm.value)">
+    <input [formControl]="loginForm.controls['fullname']" type="text" placeholder="name" class="form-control UserLogIn_email">
+    <div *ngIf ="loginForm.controls['fullname'].touched">
+      <div *ngIf ="!loginForm.controls['fullname'].valid" class = "alert alert-danger">
+        <strong>Name  is required</strong>
+      </div>
+    </div>
+    <input [formControl]="loginForm.controls['email']" type="email" placeholder="email" class="form-control UserLogIn_email">
+    <div *ngIf ="loginForm.controls['email'].touched">
+      <div *ngIf ="!loginForm.controls['email'].valid" class = "alert alert-danger">
+        <strong>Email is required</strong>
+      </div>
+    </div>
+    <div *ngIf ="!verifyemail">
+      <div *ngIf ="!verifyemail" class = "alert alert-danger">
+        <strong>Email must be valid</strong>
+      </div>
+    </div>
+    <input [formControl]="loginForm.controls['password']" type="password" placeholder="password" class="form-control UserLogIn_email">
+    <div *ngIf ="loginForm.controls['password'].touched">
+      <div *ngIf ="!loginForm.controls['password'].valid" class = "alert alert-danger">
+        <strong>Password  is required</strong>
+      </div>
+    </div>
+    <input [formControl]="loginForm.controls['confpassword']" type="password" placeholder="confirm password" class="form-control UserLogIn_email">
+    <div *ngIf ="loginForm.controls['confpassword'].touched">
+      <div *ngIf ="!loginForm.controls['confpassword'].valid" class = "alert alert-danger">
+        <strong>Confirm password  is required</strong>
+      </div>
+    </div>
+    <button type="submit" class="loginbtn" >Login</button>
+  </form>
+
+
+
+</ion-content>
