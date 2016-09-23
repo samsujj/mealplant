@@ -1,18 +1,26 @@
 <ion-content padding class="getting-started">
 
-  <h3>Welcome to your first Ionic app!</h3>
+  <div class="main-content">
+    <div class="logo-area">
+      <ion-img src="images/logo.png"></ion-img>
+    </div>
 
-  <p>
-    This starter project is our way of helping you get a functional app running in record time.
-  </p>
-  <p>
-    Follow along on the tutorial section of the Ionic docs!
-  </p>
+
+    <div class="footer">
+      <div class="textarea">
+        <ion-title>stay in shape</ion-title>
+        <p>
+          Connect with Virtuagym Fitness for great workouts, intgrated with foodapps.
+        </p>
+      </div>
+      <div class="btnarea">
+        <button [navPush]="signupPage" class="button-newaccount">Create New Account</button>
+        <button (click)="login()"  class="button-fblogin">Login With Facebook</button>
+      </div>
+    </div>
+  </div>
+
+
 
 
 </ion-content>
-
-<ion-footer class="footer">
-  <button [navPush]="signupPage" class="button-newaccount">Create New Account</button>
-  <button (click)="login()"  class="button-fblogin">Login With Facebook</button>
-</ion-footer>
