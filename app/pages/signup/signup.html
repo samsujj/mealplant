@@ -7,13 +7,37 @@
     <div class="forma-area">
       <h2>Create new account</h2>
       <form novalidate [formGroup]="loginForm" (ngSubmit)="doSubmit(loginForm.value)" class="formTag">
-        <input [formControl]="loginForm.controls['fullname']" type="text" placeholder="Name" class="form-control UserLogIn_email">
-        <div *ngIf ="loginForm.controls['fullname'].touched">
-          <div *ngIf ="!loginForm.controls['fullname'].valid" class = "alert alert-danger">
-            <strong>Name  is required</strong>
+        <input [formControl]="loginForm.controls['username']" type="text" placeholder="User Name" class="form-control">
+        <div *ngIf ="loginForm.controls['username'].touched">
+          <div *ngIf ="!loginForm.controls['username'].valid" class = "alert alert-danger">
+            <strong>User Name  is required</strong>
           </div>
         </div>
-        <input [formControl]="loginForm.controls['email']" type="email" placeholder="Email" class="form-control UserLogIn_email">
+        <input [formControl]="loginForm.controls['password']" type="password" placeholder="Password" class="form-control">
+        <div *ngIf ="loginForm.controls['password'].touched">
+          <div *ngIf ="!loginForm.controls['password'].valid" class = "alert alert-danger">
+            <strong>Password  is required</strong>
+          </div>
+        </div>
+        <input [formControl]="loginForm.controls['confpassword']" type="password" placeholder="Confirm Password" class="form-control">
+        <div *ngIf ="loginForm.controls['confpassword'].touched">
+          <div *ngIf ="!loginForm.controls['confpassword'].valid" class = "alert alert-danger">
+            <strong>Confirm password  is required</strong>
+          </div>
+        </div>
+        <input [formControl]="loginForm.controls['fname']" type="text" placeholder="First Name" class="form-control">
+        <div *ngIf ="loginForm.controls['fname'].touched">
+          <div *ngIf ="!loginForm.controls['fname'].valid" class = "alert alert-danger">
+            <strong>First Name  is required</strong>
+          </div>
+        </div>
+        <input [formControl]="loginForm.controls['lname']" type="text" placeholder="Last Name" class="form-control">
+        <div *ngIf ="loginForm.controls['lname'].touched">
+          <div *ngIf ="!loginForm.controls['lname'].valid" class = "alert alert-danger">
+            <strong>Last Name  is required</strong>
+          </div>
+        </div>
+        <input [formControl]="loginForm.controls['email']" type="email" placeholder="Email" class="form-control">
         <div *ngIf ="loginForm.controls['email'].touched">
           <div *ngIf ="!loginForm.controls['email'].valid" class = "alert alert-danger">
             <strong>Email is required</strong>
@@ -24,19 +48,45 @@
             <strong>Email must be valid</strong>
           </div>
         </div>
-        <input [formControl]="loginForm.controls['password']" type="password" placeholder="Password" class="form-control UserLogIn_email">
-        <div *ngIf ="loginForm.controls['password'].touched">
-          <div *ngIf ="!loginForm.controls['password'].valid" class = "alert alert-danger">
-            <strong>Password  is required</strong>
+        <input [formControl]="loginForm.controls['height']" type="text" placeholder="Height" class="form-control2">
+        <select [formControl]="loginForm.controls['heightunit']" class="select-control2">
+          <option value="in">in</option>
+        </select>
+        <div class="clear"></div>
+        <div *ngIf ="loginForm.controls['height'].touched">
+          <div *ngIf ="!loginForm.controls['height'].valid" class = "alert alert-danger">
+            <strong>Height is required</strong>
           </div>
         </div>
-        <input [formControl]="loginForm.controls['confpassword']" type="password" placeholder="Confirm Password" class="form-control UserLogIn_email">
-        <div *ngIf ="loginForm.controls['confpassword'].touched">
-          <div *ngIf ="!loginForm.controls['confpassword'].valid" class = "alert alert-danger">
-            <strong>Confirm password  is required</strong>
+        <input [formControl]="loginForm.controls['weight']" type="text" placeholder="Weight" class=" form-control2">
+        <select [formControl]="loginForm.controls['weightunit']" class="select-control2">
+          <option value="lb">lb</option>
+        </select>
+        <div class="clear"></div>
+        <div *ngIf ="loginForm.controls['weight'].touched">
+          <div *ngIf ="!loginForm.controls['weight'].valid" class = "alert alert-danger">
+            <strong>Weight is required</strong>
           </div>
         </div>
-        <button type="submit" class="loginbtn" >Sign up</button>
+        <input [formControl]="loginForm.controls['bodyfat']" type="text" placeholder="Body Fat" class="form-control">
+        <div *ngIf ="loginForm.controls['bodyfat'].touched">
+          <div *ngIf ="!loginForm.controls['bodyfat'].valid" class = "alert alert-danger">
+            <strong>Body Fat is required</strong>
+          </div>
+        </div>
+        <select [formControl]="loginForm.controls['plan']" class="membershipoption">
+          <option value="0" selected="selected">Free Membership</option>
+          <option value="29.99">Easy Vegan Nutrition Planning $29.99</option>
+          <option value="99.99">Personal Nutrition Coaching $99.99</option>
+        </select>
+        <div *ngIf ="loginForm.controls['plan'].touched">
+          <div *ngIf ="!loginForm.controls['plan'].valid" class = "alert alert-danger">
+            <strong>Plan is required</strong>
+          </div>
+        </div>
+
+        <!--        <button type="submit" class="loginbtn" >Sign up</button>-->
+        <button [navPush]="signup2" class="loginbtn" >Sign up</button>
       </form>
     </div>
 
@@ -45,7 +95,7 @@
 
     <div class="footer">
       <div class="btnarea">
-        <button (click)="login()"  class="button-fblogin">Login With Facebook</button>
+        <button (click)="login()"  class="button-fblogin"><span class="newbtn2">Login With Facebook</span></button>
       </div>
     </div>
 

@@ -3,43 +3,50 @@ import { NavController } from 'ionic-angular';
 import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES} from '@angular/forms';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Http, Headers} from "@angular/http";
-import {SignUp2Page} from '../signup2/signup2'
-
 
 
 @Component({
-  templateUrl: 'build/pages/signup/signup.html',
+  templateUrl: 'build/pages/signup2/signup2.html',
   directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES]
 })
-export class SignUpPage {
+export class SignUp2Page {
   public verifyemail=true;
   private loginForm:FormGroup;
   private nav:NavController;
-  public signup2 = SignUp2Page;
 
   constructor(fb: FormBuilder,public navCtrl: NavController,private _http: Http) {
     this.loginForm = fb.group({
-      username: ["", Validators.required],
-      fname: ["", Validators.required],
-      lname: ["", Validators.required],
-      email: ["", Validators.required],
-      height: ["", Validators.required],
-      heightunit: ["in"],
-      weight: ["", Validators.required],
-      weightunit: ["lb"],
-      plan: ["0"],
-      bodyfat: ["", Validators.required],
-      password: ["", Validators.required],
-      confpassword: ["", Validators.required]
+      neck: ["", Validators.required],
+      neckunit: ["in", Validators.required],
+      shoulders: ["", Validators.required],
+      shouldersunit: ["in", Validators.required],
+      bust: ["", Validators.required],
+      bustunit: ["in", Validators.required],
+      armsl: ["", Validators.required],
+      armsr: ["", Validators.required],
+      armsunit: ["in", Validators.required],
+      forearmsl: ["", Validators.required],
+      forearmsr: ["", Validators.required],
+      forearmsunit: ["in", Validators.required],
+      waist: ["", Validators.required],
+      waistunit: ["in", Validators.required],
+      navel: ["", Validators.required],
+      navelunit: ["in", Validators.required],
+      hips: ["", Validators.required],
+      hipsunit: ["in", Validators.required],
+      thighl: ["", Validators.required],
+      thighr: ["", Validators.required],
+      thighunit: ["in", Validators.required],
+      calvesl: ["", Validators.required],
+      calvesr: ["", Validators.required],
+      calvesunit: ["in", Validators.required]
     });
   }
 
   doSubmit(event){
-
     console.log(event);
 
-    /*
-    if(!validateEmail(event.email) && event.email !=''){
+    /*if(!validateEmail(event.email) && event.email !=''){
       this.verifyemail=false;
       return;
     }

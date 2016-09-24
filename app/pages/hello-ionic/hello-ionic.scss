@@ -1,3 +1,21 @@
+@font-face {
+  font-family: 'robotobold';
+  src: url('../../font/roboto-bold_0-webfont.woff2') format('woff2'),
+  url('../../font/roboto-bold_0-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'robotolight';
+  src: url('../../font/roboto-light-webfont.woff2') format('woff2'),
+  url('../../font/roboto-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
 .getting-started {
   background: rgba(0,0,0,.2) url("../../images/home_back.jpg") no-repeat  center;
   background-size: cover;
@@ -7,50 +25,198 @@
     padding: 0;
   }
   .logo-area{
-    width: 50%;
-    margin: 0 auto;
-    max-width: 300px;
+
+    margin:50px auto;
+
+    max-width: 280px;
+
+    @media all and (orientation:portrait) {
+      margin:10px auto;
+    }
+
+    @media (max-height:667px) {
+      max-width: 230px;
+    }
+
+    @media (max-height:640px) {
+      max-width: 200px;
+    }
+
+    img{ max-width: 100%; }
   }
 
   .main-content{
-    height: 100%;
+    height: 100%; position:relative;
   }
+
+
+
+  .textareadiv {
+
+    padding: 16px 5px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    text-align: center; margin-bottom:25px;
+    width: 100%;
+
+    @media (max-height:600px) {
+      padding: 10px 5px;
+    }
+
+    .item-inner {
+      border-bottom: none;
+      padding-right: 0;
+    }
+
+    h2{
+      padding: 0;
+      margin:0;
+      font-family: 'robotobold';
+      font-size: 50px;
+      text-shadow:0 0 2px #111;
+
+      color: #ffffff;
+      text-transform: uppercase;
+
+      @media (max-height:600px) {
+        font-size: 42px;
+      }
+
+    }
+    p{
+      font-family: 'robotolight';
+      color: #ffffff;
+      font-size: 30px;
+      padding:0px;
+      margin: 13px 0 0 0;
+      line-height:32px;
+
+      @media (max-height:600px) {
+        margin: 0;
+        font-size: 23px;
+        line-height:25px;
+      }
+    }
+
+  }
+
+
+
+
+
+
+
 
 
 
   .footer{
     width: 100%;
     position: relative;
+    bottom: 0;
 
     @media all and (orientation:portrait) {
       position: absolute;
       bottom: 0;
     }
 
+
+
     .btnarea{
       background-color: #16203B;
-      padding: 20px;
+      padding: 30px;
       width: 100%;
+
+      @media (max-height:640px) {
+        padding: 23px;
+      }
 
       button{
         width: 100%;
-        font-size: 18px;
-        font-weight: 800;
-        padding: 30px 0;
+        font-size:32px;
+        font-family: 'robotobold'; color:#fff; text-shadow:0 0 2px #111; margin:10px 0; padding:0px!important;
+
+        @media(max-width:580px) {
+          font-size:20px;
+        }
+
+        @media(max-width:420px) {
+          font-size:18px;
+        }
+
+
+
       }
 
-      .button-newaccount{
-        background: #00ff00 url("../../images/user_add.png") no-repeat  left / contain;
+
+
+
+      .button-newaccount{ height:97px;
+        border-radius:5px; background: rgba(104,233,17,1);
+        background: -moz-linear-gradient(top, rgba(104,233,17,1) 0%, rgba(10,190,13,1) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(104,233,17,1)), color-stop(100%, rgba(10,190,13,1)));
+        background: -webkit-linear-gradient(top, rgba(104,233,17,1) 0%, rgba(10,190,13,1) 100%);
+        background: -o-linear-gradient(top, rgba(104,233,17,1) 0%, rgba(10,190,13,1) 100%);
+        background: -ms-linear-gradient(top, rgba(104,233,17,1) 0%, rgba(10,190,13,1) 100%);
+        background: linear-gradient(to bottom, rgba(104,233,17,1) 0%, rgba(10,190,13,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#68e911', endColorstr='#0abe0d', GradientType=0 );
+
+
+        @media(max-width:470px) {
+          height:49px!important;
+        }
       }
 
-      .button-fblogin{
-        background: #0065FD url("../../images/fb_icon.png") no-repeat  left / contain;
+
+      .button-newaccount .newbtn1{ display:block!important; width:100%!important; height:97px; line-height:97px; text-align:center; padding-left:98px;    border-radius:5px;
+        background: url("../../images/user_add.png") no-repeat  left / contain;
+
+        @media(max-width:470px) {
+          height:49px!important; background-size:60px; line-height:50px; padding-left:62px;
+        }
       }
+
+
+      .button-fblogin{ height:97px!important;
+        border-radius:5px; background: rgba(0,123,255,1);
+        background: -moz-linear-gradient(top, rgba(0,123,255,1) 0%, rgba(0,85,255,1) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,123,255,1)), color-stop(100%, rgba(0,85,255,1)));
+        background: -webkit-linear-gradient(top, rgba(0,123,255,1) 0%, rgba(0,85,255,1) 100%);
+        background: -o-linear-gradient(top, rgba(0,123,255,1) 0%, rgba(0,85,255,1) 100%);
+        background: -ms-linear-gradient(top, rgba(0,123,255,1) 0%, rgba(0,85,255,1) 100%);
+        background: linear-gradient(to bottom, rgba(0,123,255,1) 0%, rgba(0,85,255,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007bff', endColorstr='#0055ff', GradientType=0 );
+
+        @media(max-width:470px) {
+          height:49px!important;
+        }
+      }
+
+
+
+
+
+      .button-fblogin .newbtn2{ display:block!important; width:100%!important; height:97px!important; text-align:center; padding-left:98px;   line-height:97px;    border-radius:5px;
+        background: url("../../images/fb_icon.png") no-repeat  left / contain;
+
+
+
+        @media(max-width:470px) {
+          height:49px!important; background-size:60px; line-height:50px;  padding-left:62px;
+        }
+
+
+      }
+
+
+
     }
 
+
+
+
     .textarea{
-      margin-bottom:  15px;
-      padding: 0;
+
+      padding: 16px 5px;
       background: rgba(0, 0, 0, 0.6);
       color: #ffffff;
       text-align: center;
@@ -61,24 +227,26 @@
         padding-right: 0;
       }
 
-      .toolbar-title{
+      ion-title{
         padding: 0;
-        font-size: 3.5rem;
-        font-weight: 700;
+        margin:0;
+        font-family: 'robotobold';
+        font-size: 50px; text-shadow:0 0 2px #111;
+
         color: #ffffff;
         text-transform: uppercase;
       }
       p{
+        font-family: 'robotolight';
         color: #ffffff;
-        font-size: 2rem;
-        margin: 10px 0;
+        font-size: 30px; padding:0px;
+        margin: 13px 0 0 0;
       }
 
     }
   }
 
 }
-
 
 
 
