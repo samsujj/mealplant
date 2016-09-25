@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES} from '@angular/forms';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Http, Headers} from "@angular/http";
+import { Storage, LocalStorage } from 'ionic-angular';
+import {FatCalculatePage} from '../fat-calculate/fat-calculate';
 
 
 @Component({
@@ -13,6 +15,7 @@ export class SignUp2Page {
   public verifyemail=true;
   private loginForm:FormGroup;
   private nav:NavController;
+  private local:LocalStorage;
 
   constructor(fb: FormBuilder,public navCtrl: NavController,private _http: Http) {
     this.loginForm = fb.group({
@@ -43,29 +46,40 @@ export class SignUp2Page {
     });
   }
 
-  doSubmit(event){
-    console.log(event);
+  signup2(event){
+    let x:any;
 
-    /*if(!validateEmail(event.email) && event.email !=''){
-      this.verifyemail=false;
-      return;
+    for(x in this.loginForm.controls){
+      this.loginForm.controls[x].markAsTouched();
+
     }
 
     if(this.loginForm.valid){
-      var headers = new Headers();
-      headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-      var link = 'http://184.168.146.185:1001/user-signup';
-      var data = {fullname: event.fullname,email: event.email,password: event.password, deviceid: ''};
+      this.local = new Storage(LocalStorage);
+      this.local.get('insertid').then((value) => {
+        var insertid = value;
 
-      this._http.post(link, data)
-          .subscribe(data => {
-            console.log(data);
-          }, error => {
-            console.log("Oooops!");
-          });
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    }*/
+        var link = 'http://184.168.146.185:1001/user-signup2';
+        var data = {_id: insertid,neck: event.neck,neckunit: event.neckunit,shoulders: event.shoulders,shouldersunit: event.shouldersunit,bust: event.bust,bustunit: event.bustunit,armsl: event.armsl,armsr: event.armsr, armsunit: event.armsunit,forearmsl: event.forearmsl,forearmsr: event.forearmsr,forearmsunit: event.forearmsunit,waist: event.waist,waistunit: event.waistunit,navel: event.navel,navelunit: event.navelunit,hips: event.hips,hipsunit: event.hipsunit,thighl: event.thighl, thighr: event.thighr,thighunit: event.thighunit,calvesl: event.calvesl,calvesr: event.calvesr,calvesunit: event.calvesunit};
+
+        this._http.post(link, data)
+            .subscribe(data10 => {
+
+
+
+
+              this.navCtrl.push(FatCalculatePage);
+            }, error => {
+              console.log("Oooops!");
+            });
+      });
+
+
+    }
 
   }
 

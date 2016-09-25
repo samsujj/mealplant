@@ -6,7 +6,7 @@
 
     <div class="forma-area">
       <h2>Body Composition</h2>
-      <form novalidate [formGroup]="loginForm" (ngSubmit)="doSubmit(loginForm.value)" class="formTag">
+      <form novalidate [formGroup]="loginForm" (ngSubmit)="signup2(loginForm.value)" class="formTag">
         <input [formControl]="loginForm.controls['neck']" type="text" placeholder="Neck" class="form-control2">
         <select [formControl]="loginForm.controls['neckunit']" class="select-control2">
           <option value="in">in</option>
@@ -14,7 +14,7 @@
         <div class="clear"></div>
         <div *ngIf ="loginForm.controls['neck'].touched">
           <div *ngIf ="!loginForm.controls['neck'].valid" class = "alert alert-danger">
-            <strong>Neck is required</strong>
+            <strong>Value of neck is required</strong>
           </div>
         </div>
         <input [formControl]="loginForm.controls['shoulders']" type="text" placeholder="Shoulders" class="form-control2">
@@ -24,7 +24,7 @@
         <div class="clear"></div>
         <div *ngIf ="loginForm.controls['shoulders'].touched">
           <div *ngIf ="!loginForm.controls['shoulders'].valid" class = "alert alert-danger">
-            <strong>Shoulders is required</strong>
+            <strong>Value of shoulders is required</strong>
           </div>
         </div>
         <input [formControl]="loginForm.controls['bust']" type="text" placeholder="Bust" class="form-control2">
@@ -34,7 +34,7 @@
         <div class="clear"></div>
         <div *ngIf ="loginForm.controls['bust'].touched">
           <div *ngIf ="!loginForm.controls['bust'].valid" class = "alert alert-danger">
-            <strong>Bust is required</strong>
+            <strong>Value of bust is required</strong>
           </div>
         </div>
         <input [formControl]="loginForm.controls['armsl']" type="text" placeholder="Arms Left" class="formcontro3" style="width: 36%; float: left; margin-right: 1%">
@@ -45,7 +45,7 @@
         <div class="clear"></div>
         <div *ngIf ="loginForm.controls['armsl'].touched">
           <div *ngIf ="!loginForm.controls['armsl'].valid || !loginForm.controls['armsr'].valid" class = "alert alert-danger">
-            <strong>Arms is required</strong>
+            <strong>Value of arms is required</strong>
           </div>
         </div>
         <input [formControl]="loginForm.controls['forearmsl']" type="text" placeholder="Forearms Left" class="formcontro3" style="width: 36%; float: left; margin-right: 1%">
@@ -56,7 +56,7 @@
         <div class="clear"></div>
         <div *ngIf ="loginForm.controls['forearmsl'].touched">
           <div *ngIf ="!loginForm.controls['forearmsl'].valid || !loginForm.controls['forearmsr'].valid" class = "alert alert-danger">
-            <strong>Forearms is required</strong>
+            <strong>Value of forearms is required</strong>
           </div>
         </div>
         <input [formControl]="loginForm.controls['waist']" type="text" placeholder="Waist" class="form-contro2" style="width: 73%; float: left;">
@@ -66,7 +66,7 @@
         <div class="clear"></div>
         <div *ngIf ="loginForm.controls['waist'].touched">
           <div *ngIf ="!loginForm.controls['waist'].valid" class = "alert alert-danger">
-            <strong>Waist is required</strong>
+            <strong>Value of waist is required</strong>
           </div>
         </div>
         <input [formControl]="loginForm.controls['navel']" type="text" placeholder="Navel" class="form-control2">
@@ -76,7 +76,7 @@
         <div class="clear"></div>
         <div *ngIf ="loginForm.controls['navel'].touched">
           <div *ngIf ="!loginForm.controls['navel'].valid" class = "alert alert-danger">
-            <strong>Navel is required</strong>
+            <strong>Value of navel is required</strong>
           </div>
         </div>
         <input [formControl]="loginForm.controls['hips']" type="text" placeholder="Hips" class="form-control2">
@@ -86,7 +86,7 @@
         <div class="clear"></div>
         <div *ngIf ="loginForm.controls['hips'].touched">
           <div *ngIf ="!loginForm.controls['hips'].valid" class = "alert alert-danger">
-            <strong>Hips is required</strong>
+            <strong>Value of hips is required</strong>
           </div>
         </div>
         <input [formControl]="loginForm.controls['thighl']" type="text" placeholder="Thigh Left" class="formcontro3" style="width: 36%;  float: left; margin-right: 1%">
@@ -97,7 +97,7 @@
         <div class="clear"></div>
         <div *ngIf ="loginForm.controls['thighl'].touched">
           <div *ngIf ="!loginForm.controls['thighl'].valid || !loginForm.controls['thighr'].valid" class = "alert alert-danger">
-            <strong>Thighs is required</strong>
+            <strong>Value of thighs is required</strong>
           </div>
         </div>
         <input [formControl]="loginForm.controls['calvesl']" type="text" placeholder="Calves Left" class="formcontro3" style="width: 36%; float: left; margin-right: 1%">
@@ -108,11 +108,11 @@
         <div class="clear"></div>
         <div *ngIf ="loginForm.controls['calvesl'].touched">
           <div *ngIf ="!loginForm.controls['calvesl'].valid || !loginForm.controls['calvesr'].valid" class = "alert alert-danger">
-            <strong>Calves is required</strong>
+            <strong>Value of calves is required</strong>
           </div>
         </div>
 
-        <button type="submit" class="loginbtn" >Sign up</button>
+        <button type="submit" class="loginbtn" >Calculate</button>
       </form>
     </div>
 

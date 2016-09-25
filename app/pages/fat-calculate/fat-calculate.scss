@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'robotobold';
+  src: url('../../font/roboto-bold_0-webfont.woff2') format('woff2'),
+  url('../../font/roboto-bold_0-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'robotolight';
+  src: url('../../font/roboto-light-webfont.woff2') format('woff2'),
+  url('../../font/roboto-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+.getting-started {
+  background: rgba(0,0,0,.2) url("../../images/home_back.jpg") no-repeat  center;
+  background-size: cover;
+  padding: 0;
+
+  scroll-content{
+    padding: 0;
+  }
+  .logo-area{
+
+    margin:50px auto;
+
+    max-width: 280px;
+
+    @media all and (orientation:portrait) {
+      margin:10px auto;
+    }
+
+    @media (max-height:667px) {
+      max-width: 230px;
+    }
+
+    @media (max-height:640px) {
+      max-width: 200px;
+    }
+
+    img{ max-width: 100%; }
+  }
+
+  .main-content{
+    height: 100%; position:relative;
+
+    h2{
+      color: #ffffff;
+      padding: 10px;
+      background: rgba(0,0,0,0.7);
+    }
+  }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+

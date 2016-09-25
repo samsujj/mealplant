@@ -3,6 +3,8 @@ import {Page, Platform} from 'ionic-angular';
 import {SignUpPage} from '../signup/signup'
 import {Facebook} from 'ionic-native'
 import {isArray} from "rxjs/util/isArray";
+import { Device } from 'ionic-native';
+import { Storage, LocalStorage } from 'ionic-angular';
 
 
 @Component({
@@ -12,10 +14,12 @@ import {isArray} from "rxjs/util/isArray";
 export class HelloIonicPage {
   signupPage=SignUpPage;
   private  platform;
+  private local:LocalStorage;
 
   constructor(platform:Platform) {
     this.platform = platform;
-
+    this.local = new Storage(LocalStorage);
+    this.local.set('deviceinfo', JSON.stringify(Device.device));
   }
 
   login() {
@@ -55,4 +59,8 @@ export class HelloIonicPage {
     });
   }
 
+
+
 }
+
+
