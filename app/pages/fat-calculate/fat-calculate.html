@@ -5,11 +5,21 @@
       <ion-img src="images/logo.png"></ion-img>
     </div>
 
+    <div class="contentarea">
+      <h2>Estimated Body-Fat Percentage:	{{fatpercentage}}% </h2>
 
-    <h2>Estimated Body-Fat Percentage:	{{fatpercentage}}% </h2>
+      <div class="fatChartArea">
+        <base-chart class="chart" [data]="getpieChartData()" [labels]="getpieChartLabels()" [chartType]="pieChartType"></base-chart>
+      </div>
+    </div>
+
+
+
 
 </div>
 
-
-
 </ion-content>
+
+<ion-footer>
+  <button>Save</button>
+</ion-footer>

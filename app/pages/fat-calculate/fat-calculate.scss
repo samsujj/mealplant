@@ -48,10 +48,22 @@
   .main-content{
     height: 100%; position:relative;
 
-    h2{
-      color: #ffffff;
-      padding: 10px;
-      background: rgba(0,0,0,0.7);
+
+
+    .contentarea{
+      background: rgba(0,0,0,.6);
+      padding: 20px 0;
+      margin-top: 20px;
+
+
+      h2{
+        color: #ffffff;
+        padding: 10px;
+      }
+
+      .fatChartArea{
+        color: #ffffff;
+      }
     }
   }
 
@@ -60,6 +72,7 @@
 
 
 }
+
 
 
 

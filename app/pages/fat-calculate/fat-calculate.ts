@@ -1,60 +1,71 @@
 import {Component} from '@angular/core';
+import { NavController,NavParams } from 'ionic-angular';
 import {Page, Platform} from 'ionic-angular';
 import {Facebook} from 'ionic-native'
 import {isArray} from "rxjs/util/isArray";
 import { Device } from 'ionic-native';
 import { Storage, LocalStorage } from 'ionic-angular';
 import {Http, Headers} from "@angular/http";
+import '../../../node_modules/chart.js/src/chart.js';
+import { BaseChartComponent } from 'ng2-charts/ng2-charts';
+import {SignUp2Page} from '../signup2/signup2';
 
 
 @Component({
   templateUrl: 'build/pages/fat-calculate/fat-calculate.html',
-  //providers:[FbProvider],
+    directives:[BaseChartComponent],
+    styles: [`
+    .chart {
+      display: block;
+    }
+  `],
 })
 export class FatCalculatePage {
   private  platform;
   private local:LocalStorage;
     public fatpercentage;
+    private fatmass;
+    private leanmass;
+    private excessfat;
+    private chart;
 
-  constructor(platform:Platform,private _http: Http) {
+    public items;
+
+    public pieChartType:string = 'pie';
+
+
+
+    constructor(platform:Platform,private _http: Http,public navCtrl: NavController,private navParams: NavParams) {
     this.platform = platform;
 
+        this.leanmass = this.navParams.get('leanmass');
+        this.fatpercentage = this.navParams.get('fatpercentage');
+        this.excessfat = this.navParams.get('excessfat');
+        this.fatmass = this.navParams.get('fatmass');
 
-    this.local = new Storage(LocalStorage);
-    this.local.get('insertid').then((value) => {
-      var insertid = value;
+        console.log(this.leanmass);
+        console.log(this.fatpercentage);
+        console.log(this.excessfat);
+        console.log(this.fatmass);
 
-      var headers = new Headers();
-//      headers.append('Content-Type', 'application/x-www-form-urlencoded');
-      headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-
-      var link = 'http://184.168.146.185:1001/getuserdetails';
-      var data = {_id: insertid};
-
-      this._http.post(link, data)
-          .subscribe(data => {
-              alert(data);
-              var data1 = data.json();
-              if(data1.status == 'success'){
-                  var data2 = data1.item;
-
-                  /*******************fat calculation*************************/
-                  var weight = parseInt(data2.weight);
-                  var waist = parseInt(data2.waist);
-                  var leanwight = ((weight*1.082) + 94.42)-(waist*4.15);
-                  var fatpercentage1 = ((weight-leanwight)*100)/weight;
-                  this.fatpercentage = fatpercentage1.toFixed(2);
-
-              }else{
-                  alert('Error occured! try again.')
-              }
-          }, error => {
-            console.log("Oooops!");
-          });
-    });
 
 
   }
+
+    getpieChartLabels(){
+        var arr1 = ['Lean Mass', 'Optimal Fat', 'Excess Fat'];
+        return arr1;
+    }
+
+    getpieChartData(){
+        var arr1 = [this.leanmass, this.fatmass, this.excessfat];
+        return arr1;
+    }
+
+
+    gotoback(){
+        this.navCtrl.push(SignUp2Page);
+    }
 
 
 

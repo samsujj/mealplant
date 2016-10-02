@@ -70,9 +70,26 @@ export class SignUp2Page {
             .subscribe(data10 => {
 
 
+              var link2 = 'http://184.168.146.185:1001/getuserdetails';
+              var data2 = {_id: insertid};
+
+              this._http.post(link2, data2)
+                  .subscribe(data => {
+                    var data1 = data.json();
+                    if(data1.status == 'success'){
+                      var data2 = data1.item;
+
+                      this.navCtrl.push(FatCalculatePage,data2);
+
+                    }else{
+                      alert('Error occured! try again.')
+                    }
+                  }, error => {
+                    alert('Error occured! try again.')
+                    console.log("Oooops!");
+                  });
 
 
-              this.navCtrl.push(FatCalculatePage);
             }, error => {
               console.log("Oooops!");
             });
