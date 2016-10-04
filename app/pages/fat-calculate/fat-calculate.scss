@@ -73,7 +73,22 @@
 
 }
 
+ion-footer.fatcalcpage{
+  background: rgba(104,233,17,.8);
+  text-align: center;
 
+  button{
+    background: none;
+    font-size: 40px;
+    margin: 10px 0;
+    box-shadow: none;
+  }
+
+  button:hover {
+    background: none !important;
+  }
+
+}
 
 
 

@@ -1,0 +1,61 @@
+<ion-content class="signupcontent">
+  <div class="main-content">
+    <div class="logo-area">
+      <ion-img src="images/logo.png"></ion-img>
+    </div>
+
+    <div class="forma-area">
+      <h2>Create new account</h2>
+      <form novalidate [formGroup]="loginForm" (ngSubmit)="doSubmit(loginForm.value)" class="formTag">
+        <ion-item class="dob" >
+          <ion-label>Date Of Birth</ion-label>
+          <ion-datetime min="1944-01-01" max="2009-12-01" disabled="false" displayFormat="MM/DD/YYYY" [formControl]="loginForm.controls['dob']" #dob></ion-datetime>
+        </ion-item>
+        <input [formControl]="loginForm.controls['height']" type="text" placeholder="Height (ft)" class="formcontro3" style="width: 49%;  float: left; margin-right: 1%">
+        <input [formControl]="loginForm.controls['heightinch']" type="text" placeholder="(in)" class="formcontro3" style="width: 50%; float: left;">
+        <div class="clear"></div>
+        <div *ngIf ="loginForm.controls['height'].touched">
+          <div *ngIf ="!loginForm.controls['height'].valid" class = "alert alert-danger">
+            <strong>Height is required</strong>
+          </div>
+        </div>
+        <input [formControl]="loginForm.controls['weight']" type="text" placeholder="Weight" class=" form-control2">
+        <select [formControl]="loginForm.controls['weightunit']" class="select-control2">
+          <option value="lb">lb</option>
+        </select>
+        <div class="clear"></div>
+        <div *ngIf ="loginForm.controls['weight'].touched">
+          <div *ngIf ="!loginForm.controls['weight'].valid" class = "alert alert-danger">
+            <strong>Weight is required</strong>
+          </div>
+        </div>
+        <input [formControl]="loginForm.controls['bodyfat']" type="text" placeholder="Body Fat" class="form-control2">
+        <select [formControl]="loginForm.controls['bodyfatunit']" class="select-control2">
+          <option value="lb">lb</option>
+        </select>
+        <div *ngIf ="loginForm.controls['bodyfat'].touched">
+          <div *ngIf ="!loginForm.controls['bodyfat'].valid" class = "alert alert-danger">
+            <strong>Body Fat is required</strong>
+          </div>
+        </div>
+        <select [formControl]="loginForm.controls['plan']" class="membershipoption">
+          <option value="0" selected="selected">Free Membership</option>
+          <option value="29.99">Easy Vegan Nutrition Planning $29.99</option>
+          <option value="99.99">Personal Nutrition Coaching $99.99</option>
+        </select>
+        <div *ngIf ="loginForm.controls['plan'].touched">
+          <div *ngIf ="!loginForm.controls['plan'].valid" class = "alert alert-danger">
+            <strong>Plan is required</strong>
+          </div>
+        </div>
+
+        <button type="submit" class="loginbtn" >Sign up</button>
+        <!--<button [navPush]="signup2" class="loginbtn" >Sign up</button>-->
+      </form>
+    </div>
+
+
+
+  </div>
+
+</ion-content>

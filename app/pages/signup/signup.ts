@@ -4,9 +4,8 @@ import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES} from '@angular/forms';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Http, Headers} from "@angular/http";
 import {SignUp2Page} from '../signup2/signup2';
-import {ControlGroup} from "@angular/common";
+import { Control, ControlGroup } from "@angular/common";
 import { Storage, LocalStorage } from 'ionic-angular';
-
 
 
 @Component({
@@ -22,7 +21,7 @@ export class SignUpPage {
 
   constructor(fb: FormBuilder,public navCtrl: NavController,private _http: Http) {
     this.loginForm = fb.group({
-      username: ["", Validators.required],
+      username: ["", Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(25)])],
       fname: ["", Validators.required],
       lname: ["", Validators.required],
       email: ["", Validators.required],
@@ -35,7 +34,7 @@ export class SignUpPage {
       gender: ["male"],
       bodyfat: ["", Validators.required],
       bodyfatunit: ["lb"],
-      password: ["", Validators.required],
+      password: ["", Validators.compose([Validators.required, Validators.minLength(8)])],
       confpassword: ["", Validators.required]
     }, {validator: this.matchingPasswords('password', 'confpassword')});
   }
@@ -97,6 +96,9 @@ export class SignUpPage {
       }
     }
   }
+
+
+
 
   deviceinfo(){
     this.local = new Storage(LocalStorage);

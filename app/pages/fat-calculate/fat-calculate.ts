@@ -9,6 +9,7 @@ import {Http, Headers} from "@angular/http";
 import '../../../node_modules/chart.js/src/chart.js';
 import { BaseChartComponent } from 'ng2-charts/ng2-charts';
 import {SignUp2Page} from '../signup2/signup2';
+import {DashboardPage} from '../dashboard/dashboard';
 
 
 @Component({
@@ -65,6 +66,36 @@ export class FatCalculatePage {
 
     gotoback(){
         this.navCtrl.push(SignUp2Page);
+    }
+
+    gotodashboard(){
+        this.local = new Storage(LocalStorage);
+        this.local.get('insertid').then((value) => {
+
+
+            var link2 = 'http://184.168.146.185:1001/getuserdetails';
+            var data2 = {_id: value};
+
+            this._http.post(link2, data2)
+                .subscribe(data => {
+                    var data1 = data.json();
+                    if(data1.status == 'success'){
+                        var data2 = data1.item;
+
+                        this.local.set('userdetails', data2);
+
+                        this.navCtrl.push(DashboardPage);
+
+                    }else{
+                        alert('Error occured! try again.')
+                    }
+                }, error => {
+                    alert('Error occured! try again.')
+                    console.log("Oooops!");
+                });
+
+
+        })
     }
 
 
