@@ -7,6 +7,7 @@ import { Device } from 'ionic-native';
 import { Storage, LocalStorage } from 'ionic-angular';
 import {FatCalculatePage} from '../fat-calculate/fat-calculate';
 import {LogoutPage} from '../logout/logout';
+import {HelloIonicPage} from '../hello-ionic/hello-ionic';
 
 @Component({
   templateUrl: 'build/pages/dashboard/dashboard.html',
@@ -15,6 +16,7 @@ import {LogoutPage} from '../logout/logout';
 export class DashboardPage {
   signupPage=SignUpPage;
   private  platform;
+  private userdetails;
   private local:LocalStorage;
   private logoutpage=LogoutPage;
 
@@ -28,6 +30,17 @@ export class DashboardPage {
     this.platform = platform;
     this.local = new Storage(LocalStorage);
     this.local.set('deviceinfo', JSON.stringify(Device.device));
+
+    this.local = new Storage(LocalStorage);
+    this.local.get('userdetails').then((value) => {
+      if(value!=null) {
+        this.userdetails=JSON.parse(value);
+        console.log(this.userdetails);
+      }
+      else{
+        this.navCtrl.setRoot(HelloIonicPage);
+      }
+    });
 
   }
 

@@ -33,6 +33,26 @@ export class FatCalculatePage {
     public items;
 
     public pieChartType:string = 'pie';
+    public pieChartOption:any = {
+        animation: false,
+        responsive: true,
+
+        title: {
+            display: true,
+            text: 'Body Fat Calculation',
+            fontFamily : '"robotobold"',
+            fontSize : 18,
+            fontColor : '#FFFFFF'
+        },
+        legend : {
+            position : 'bottom',
+            labels : {
+                fontFamily : '"robotobold"',
+                fontColor : '#FFFFFF',
+                boxWidth : 40
+            }
+        }
+    };
 
 
 
@@ -44,10 +64,6 @@ export class FatCalculatePage {
         this.excessfat = this.navParams.get('excessfat');
         this.fatmass = this.navParams.get('fatmass');
 
-        console.log(this.leanmass);
-        console.log(this.fatpercentage);
-        console.log(this.excessfat);
-        console.log(this.fatmass);
 
 
 
@@ -79,10 +95,11 @@ export class FatCalculatePage {
             this._http.post(link2, data2)
                 .subscribe(data => {
                     var data1 = data.json();
+
                     if(data1.status == 'success'){
                         var data2 = data1.item;
 
-                        this.local.set('userdetails', data2);
+                        this.local.set('userdetails', JSON.stringify(data2));
 
                         this.navCtrl.push(DashboardPage);
 

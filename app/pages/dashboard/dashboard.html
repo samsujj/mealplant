@@ -1,12 +1,12 @@
 <ion-header class="hide">
   <ion-navbar>
     <ion-title>
-      About
+      ionic
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content class="has-header">
-  <div class="container-fluid mainwrapper">
+<ion-content class="has-header dashboard-page">
+  <div class="container-fluid mainwrapper" *ngIf="userdetails">
 
 
     <div class="block1">
@@ -14,7 +14,7 @@
         <div class="block_sub1">
           <h2>
             <label>
-              Jaclyn Dashboard<br>
+              {{userdetails.fname}} {{userdetails.lname}}<br>
               <span>Today at 22.30</span>
             </label>
           </h2>

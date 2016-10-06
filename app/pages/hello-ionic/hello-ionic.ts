@@ -9,6 +9,7 @@ import {FatCalculatePage} from '../fat-calculate/fat-calculate';
 import {DashboardPage} from '../dashboard/dashboard';
 import {Http, Headers} from "@angular/http";
 import {FbSignUpPage} from '../fbsignup/fbsignup';
+import {Splashscreen} from 'ionic-native';
 
 @Component({
   templateUrl: 'build/pages/hello-ionic/hello-ionic.html',
@@ -48,8 +49,13 @@ export class HelloIonicPage {
   ionViewDidEnter() {
 
 
-    console.log('ionViewDidEnter');
-    console.log(this.isloggedin);
+    if (Splashscreen) {
+      setTimeout(() => {
+        Splashscreen.hide();
+      }, 100);
+    }
+
+
     if(this.isloggedin)this.navCtrl.setRoot(DashboardPage);
 
   }
