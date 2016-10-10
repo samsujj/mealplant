@@ -32,11 +32,12 @@ export class HelloIonicPage {
     this.local = new Storage(LocalStorage);
     this.local.set('deviceinfo', JSON.stringify(Device.device));
 
-
     this.local = new Storage(LocalStorage);
     this.local.get('userdetails').then((value) => {
       if(value!=null) {
         this.isloggedin=true;
+       // this.navCtrl.push(DashboardPage);
+
       }
       else{
         this.isloggedin=false;
@@ -56,7 +57,8 @@ export class HelloIonicPage {
     }
 
 
-    if(this.isloggedin)this.navCtrl.setRoot(DashboardPage);
+    if(this.isloggedin)
+      this.navCtrl.setRoot(DashboardPage);
 
   }
 

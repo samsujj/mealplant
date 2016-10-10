@@ -113,6 +113,11 @@
           </div>
         </div>
 
+        <input type="button" value="Profile Picture" class="profileImgBtn" (click)="addPhoto()" />
+        <div class="profileImg">
+          <img *ngIf="imagepath"  [src]="imagepath" width="100%" />
+        </div>
+
         <button type="submit" class="loginbtn" >Sign up</button>
         <!--<button [navPush]="signup2" class="loginbtn" >Sign up</button>-->
       </form>

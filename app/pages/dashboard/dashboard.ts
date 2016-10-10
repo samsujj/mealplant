@@ -17,8 +17,10 @@ export class DashboardPage {
   signupPage=SignUpPage;
   private  platform;
   private userdetails;
+  private username;
   private local:LocalStorage;
   private logoutpage=LogoutPage;
+  private isLoad;
 
 
 
@@ -27,6 +29,10 @@ export class DashboardPage {
     platform.ready().then((readySource) => {
       console.log(readySource);
     });
+
+    this.userdetails = '';
+
+    this.isLoad = 0;
     this.platform = platform;
     this.local = new Storage(LocalStorage);
     this.local.set('deviceinfo', JSON.stringify(Device.device));
@@ -35,6 +41,7 @@ export class DashboardPage {
     this.local.get('userdetails').then((value) => {
       if(value!=null) {
         this.userdetails=JSON.parse(value);
+        this.username = this.userdetails.fname+' '+this.userdetails.lname;
         console.log(this.userdetails);
       }
       else{
@@ -44,34 +51,18 @@ export class DashboardPage {
 
   }
 
-  login() {
-    alert(90);
+  addhideclass(hparam){
+    if(typeof (hparam) == 'undefined'){
+      return 'hide';
+    }else{
+      if(!hparam){
+        return 'hide';
+      }
+    }
 
-    this.platform.ready().then(() => {
-
-      Facebook.login(["email","public_profile"]).then((result) => {
-        console.log(result);
-        alert(result);
-
-        Facebook.api('/' + result.authResponse.userID + '?fields=id,name,gender,email,first_name,last_name,birthday',[]).then((result1) => {
-          var x;
-          for (x in result1){
-            alert(x+'---'+result1[x]);
-          }
-
-
-        });
-
-
-
-      });
-
-
-
-
-
-    });
+    return '';
   }
+
 
 
 }
