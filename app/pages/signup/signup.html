@@ -79,7 +79,7 @@
         <input [formControl]="loginForm.controls['heightinch']" type="text" placeholder="(in)" class="formcontro3" style="width: 50%; float: left;">
         <div class="clear"></div>
         <div *ngIf ="loginForm.controls['height'].touched">
-          <div *ngIf ="!loginForm.controls['height'].valid" class = "alert alert-danger">
+          <div *ngIf ="!loginForm.controls['height'].valid || !loginForm.controls['heightinch'].valid" class = "alert alert-danger">
             <strong>Height is required</strong>
           </div>
         </div>
@@ -93,7 +93,7 @@
             <strong>Weight is required</strong>
           </div>
         </div>
-        <input [formControl]="loginForm.controls['bodyfat']" type="text" placeholder="Body Fat" class="form-control2">
+        <input [formControl]="loginForm.controls['bodyfat']" type="text" placeholder="Body Fat" class="form-control2" id="bodyfat">
         <select [formControl]="loginForm.controls['bodyfatunit']" class="select-control2">
           <option value="lb">lb</option>
         </select>
@@ -102,6 +102,9 @@
             <strong>Body Fat is required</strong>
           </div>
         </div>
+        <input type="button" value="Calculate" class="profileImgBtn" (click)="calcbodyfat()" />
+
+
         <select [formControl]="loginForm.controls['plan']" class="membershipoption">
           <option value="0" selected="selected">Free Membership</option>
           <option value="29.99">Easy Vegan Nutrition Planning $29.99</option>

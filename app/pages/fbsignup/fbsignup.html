@@ -38,6 +38,9 @@
             <strong>Body Fat is required</strong>
           </div>
         </div>
+
+        <input type="button" value="Calculate" class="profileImgBtn" (click)="calcbodyfat()" />
+
         <select [formControl]="loginForm.controls['plan']" class="membershipoption">
           <option value="0" selected="selected">Free Membership</option>
           <option value="29.99">Easy Vegan Nutrition Planning $29.99</option>
@@ -49,6 +52,9 @@
           </div>
         </div>
 
+        <div class="profileImg">
+          <img *ngIf="imagepath"  [src]="imagepath" width="100%" />
+        </div>
         <button type="submit" class="loginbtn" >Sign up</button>
         <!--<button [navPush]="signup2" class="loginbtn" >Sign up</button>-->
       </form>

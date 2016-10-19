@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES} from '@angular/forms';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators,FormControl} from '@angular/forms';
 import {Http, Headers} from "@angular/http";
 import {SignUp2Page} from '../signup2/signup2';
 import { Control, ControlGroup } from "@angular/common";
 import { Storage, LocalStorage } from 'ionic-angular';
-import { ActionSheetController,LoadingController } from 'ionic-angular';
+import { ActionSheetController,LoadingController,AlertController } from 'ionic-angular';
 import {ImagePicker, CaptureImageOptions, MediaFile, CaptureError, CaptureVideoOptions} from 'ionic-native';
 import { Transfer } from 'ionic-native';
 import { MediaCapture } from 'ionic-native';
@@ -26,11 +26,13 @@ export class SignUpPage {
   private imagecapturepath;
   private imagepath;
   private filename;
+  private bodyfat;
 
-  constructor(fb: FormBuilder,public navCtrl: NavController,private _http: Http,public actionSheetCtrl: ActionSheetController,public loadingCtrl: LoadingController) {
+  constructor(fb: FormBuilder,public navCtrl: NavController,private _http: Http,public actionSheetCtrl: ActionSheetController,public loadingCtrl: LoadingController,public alertCtrl: AlertController) {
     this.imagepath=false;
     this.imagecapturepath=false;
     this.filename='';
+    this.bodyfat='';
 
     this.loginForm = fb.group({
       username: ["", Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(25)])],
@@ -38,13 +40,13 @@ export class SignUpPage {
       lname: ["", Validators.required],
       email: ["", Validators.required],
       height: ["", Validators.required],
-      heightinch: ["0", Validators.required],
+      heightinch: ["", Validators.required],
       weight: ["", Validators.required],
       weightunit: ["lb"],
       dob: ["2009-01-01", Validators.required],
       plan: ["0"],
       gender: ["male"],
-      bodyfat: ["", Validators.required],
+      bodyfat: [this.bodyfat, Validators.required],
       bodyfatunit: ["lb"],
       password: ["", Validators.compose([Validators.required, Validators.minLength(8)])],
       confpassword: ["", Validators.required]
@@ -239,8 +241,6 @@ export class SignUpPage {
         .then((data) => {
           // success
 
-          alert(data.response);
-
           var data1:any = JSON.parse(data.response);
 
 
@@ -272,6 +272,95 @@ export class SignUpPage {
             },
             (err: CaptureError) => { }
         );
+  }
+
+  calcbodyfat(){
+    if(isNaN(this.loginForm.value.weight) || this.loginForm.value.weight == ''){
+      alert('Please enter your weight');
+      return;
+    }
+    if(isNaN(this.loginForm.value.height) || this.loginForm.value.height == ''){
+      alert('Please enter your height');
+      return;
+    }
+
+    if(this.loginForm.value.gender == 'female'){
+      var inputvar = [
+          {
+              name: 'neck',
+              placeholder: 'Neck(inches)',
+              type:'number'
+          },
+          {
+              name: 'waist',
+              placeholder: 'Waist(inches)',
+              type:'number'
+          },
+        {
+          name: 'hip',
+          placeholder: 'Hip(inches)',
+          type:'number'
+        }];
+    }else{
+      var inputvar = [
+        {
+          name: 'neck',
+          placeholder: 'Neck(inches)',
+          type:'number'
+        },
+        {
+          name: 'waist',
+          placeholder: 'Waist(inches)',
+          type:'number'
+        }];
+    }
+
+
+    let prompt = this.alertCtrl.create({
+      title: 'Body Fat',
+      message: "Calculate body fat.",
+      inputs: inputvar,
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            var isValid = 1;
+            if(isNaN(data.waist) || data.waist == ''){
+              isValid = 0;
+            }
+            if(isNaN(data.neck) || data.neck == ''){
+              isValid = 0;
+            }
+
+
+
+            if(isValid){
+              var link = 'http://184.168.146.185:1001/fatcalculate';
+
+              data = Object.assign(data, {weight : this.loginForm.value.weight,height : this.loginForm.value.height,heightinch : this.loginForm.value.heightinch});
+
+              this._http.post(link, data)
+                  .subscribe(data1 => {
+                   var data12 = data1.json();
+
+                    (<FormControl>this.loginForm.controls['bodyfat']).updateValue(data12.bodyfat);
+
+                  }, error => {
+                    console.log("Oooops!");
+                  });
+            }
+
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
 
 
