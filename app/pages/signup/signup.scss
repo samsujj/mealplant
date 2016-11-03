@@ -10,16 +10,56 @@
   font-weight: normal;
   font-style: normal;
 }
+
+ion-header{
+  background: none !important;
+
+  .toolbar-background{
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #68e911 0%, #0abe0d 100%) repeat scroll 0 0 !important;
+  }
+
+  ion-icon{
+    color: #FFFFFF;
+  }
+
+  .toolbar-title{
+    color: #FFFFFF;
+  }
+
+  .createbtn{
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: #fff;
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 6px;
+  }
+
+  .createbtn:hover{
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+  }
+
+  .button.activated{
+    box-shadow: none;
+  }
+
+}
+
+
 .signupcontent {
-  background: rgba(0, 0, 0, .2) url("../../images/home_back.jpg") no-repeat center;
+  background: rgba(0, 0, 0, .6) url("../../images/home_back.jpg") no-repeat center;
   background-size: cover;
   padding: 0;
   scroll-content {
     padding: 0;
+    background: rgba(0, 0, 0, 0.4);
   }
   .main-content {
-    background: rgba(0, 0, 0, 0.6);
-    padding-top:25px;
+   display:table;
+    width:100%;
+    height:100%;
   }
   .logo-area {
     width: 150px;
@@ -28,25 +68,25 @@
 
   .clear{ clear:both;}
   .forma-area {
-    margin-top:25px;
-    margin-bottom: 20px;
+    vertical-align:middle;
+    display:table-cell;
     h2 {
       color: #ffffff;
       text-transform: uppercase;
       font-weight: bold;
       font-family: 'robotobold';
-      font-size: 40px;
+      font-size: 26px;
       text-shadow:0 0 2px #111;
       text-align: center;
-      margin:0px;
-      padding:0 0 20px 0;
+      margin-bottom:20px;
+      padding:10px 0 10px 0;
     }
     .formTag {
       width:80%; margin:0 auto;
       text-align: center;
 
 
-      input[type="text"],input[type="number"], input[type="email"], input[type="password"],.membershipoption {
+      /*input[type="text"],input[type="number"], input[type="email"], input[type="password"],.membershipoption {
         background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
         border: 1px solid #fff;
         border-radius: 0;
@@ -57,7 +97,7 @@
         font-family:Arial, Helvetica, sans-serif;
         padding: 10px;
         font-size: 14px; border-radius:4px;
-      }
+      }*/
       .item-datetime{
         background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
         border: 1px solid #fff;
@@ -77,21 +117,21 @@
 
 
 
-      input::-webkit-input-placeholder {
+      /*input::-webkit-input-placeholder {
         color: #ffffff; opacity:10;
       }
 
-      input:-moz-placeholder { /* Firefox 18- */
+      input:-moz-placeholder { /* Firefox 18-
         color: #ffffff; opacity:10;
       }
 
-      input::-moz-placeholder {  /* Firefox 19+ */
+      input::-moz-placeholder {  /* Firefox 19+
         color: #ffffff; opacity:10;
       }
 
       input:-ms-input-placeholder {
         color: #ffffff; opacity:10;
-      }
+      }*/
 
 
       .form-control2{  background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
@@ -120,7 +160,7 @@
 
       .loginbtn {
         display: block;
-        margin: 15px auto;
+        margin: 30px auto;
         background-color: #00ff00;
         font-size: 30px; border-radius:6px; width:250px!important; height:60px;    font-family: 'robotobold';
         font-size: 40px; text-shadow:0 0 2px #111; text-align:center; line-height:60px; background: rgba(103,232,17,1);
@@ -133,6 +173,35 @@
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#67e811', endColorstr='#0cbe0c', GradientType=0 );
 
       }
+
+
+
+      .item{
+        background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
+
+        ion-label{
+          color: #FFFFFF;
+        }
+
+        .text-input{
+          color: #FFFFFF;
+        }
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
     .alert {
       color: #ff0000;

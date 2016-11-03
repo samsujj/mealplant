@@ -1,0 +1,58 @@
+.signupcontent2header{
+  .back-button{
+    display: none;
+  }
+}
+
+
+.signupcontent3 {
+  background: rgba(0, 0, 0, .6) url("../../images/home_back.jpg") no-repeat center;
+  background-size: cover;
+  padding: 0;
+  scroll-content {
+    padding: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .text-area{
+    background: rgba(0, 0, 0, 0.7);
+    margin-top: 20px;
+    padding: 15px 10px;
+    p{
+      color: #FFFFFF;
+      font-size: 20px;
+      margin: 0;
+      text-align: center;
+    }
+
+    .btnarea{
+      display: inline-block;
+      .btn{
+        width: 40%;
+        float: left;
+        font-size: 20px;
+        border-radius : 0;
+        background: #FFFFFF;
+        box-shadow: none;
+        line-height: 35px;
+        border: none;
+      }
+      .btn:hover{
+        background: #FFFFFF;
+      }
+      .active{
+        background: #68e911;
+        color: #FFFFFF;
+      }
+      .active:hover{
+        background: #68e911;
+        color: #FFFFFF;
+      }
+    }
+
+  }
+
+
+
+}
+

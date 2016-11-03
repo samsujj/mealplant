@@ -6,7 +6,7 @@ import {Http, Headers} from "@angular/http";
 import {SignUp2Page} from '../signup2/signup2';
 import { Control, ControlGroup } from "@angular/common";
 import { Storage, LocalStorage } from 'ionic-angular';
-import { ActionSheetController,LoadingController,AlertController } from 'ionic-angular';
+import { ActionSheetController,LoadingController,AlertController,ToastController } from 'ionic-angular';
 import {ImagePicker, CaptureImageOptions, MediaFile, CaptureError, CaptureVideoOptions} from 'ionic-native';
 import { Transfer } from 'ionic-native';
 import { MediaCapture } from 'ionic-native';
@@ -28,7 +28,7 @@ export class SignUpPage {
   private filename;
   private bodyfat;
 
-  constructor(fb: FormBuilder,public navCtrl: NavController,private _http: Http,public actionSheetCtrl: ActionSheetController,public loadingCtrl: LoadingController,public alertCtrl: AlertController) {
+  constructor(fb: FormBuilder,public navCtrl: NavController,private _http: Http,public actionSheetCtrl: ActionSheetController,public loadingCtrl: LoadingController,public alertCtrl: AlertController,public toastCtrl: ToastController) {
     this.imagepath=false;
     this.imagecapturepath=false;
     this.filename='';
@@ -36,32 +36,16 @@ export class SignUpPage {
 
     this.loginForm = fb.group({
       username: ["", Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(25)])],
-      fname: ["", Validators.required],
-      lname: ["", Validators.required],
       email: ["", Validators.required],
-      height: ["", Validators.required],
-      heightinch: ["", Validators.required],
-      weight: ["", Validators.required],
-      weightunit: ["lb"],
-      dob: ["2009-01-01", Validators.required],
-      plan: ["0"],
-      gender: ["male"],
-      bodyfat: [this.bodyfat, Validators.required],
-      bodyfatunit: ["lb"],
       password: ["", Validators.compose([Validators.required, Validators.minLength(8)])],
-      confpassword: ["", Validators.required]
-    }, {validator: this.matchingPasswords('password', 'confpassword')});
+    });
   }
 
   doSubmit(event){
+    this.navCtrl.push(SignUp2Page);
 
-    let x:any;
-    console.log(this.loginForm.value.dob);
 
-    for(x in this.loginForm.controls){
-      this.loginForm.controls[x].markAsTouched();
-
-    }
+    /*let x:any;
 
     if(this.loginForm.valid){
 
@@ -73,10 +57,19 @@ export class SignUpPage {
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
         var link = 'http://184.168.146.185:1001/user-signup';
-        var data = {username: event.username,fname: event.fname,lname: event.lname,email: event.email,height: event.height,heightinch: event.heightinch,weight: event.weight,weightunit: event.weightunit,dob: event.dob,gender: event.gender, plan: event.plan,bodyfat: event.bodyfat,bodyfatunit: event.bodyfatunit,password: event.password, deviceinfo: deviceinfo,profilepicture : this.filename};
+        var data = {username: event.username,email: event.email,password: event.password, deviceinfo: deviceinfo};
+
+        let loading = this.loadingCtrl.create({
+          content: 'Please wait...'
+        });
+
+        loading.present();
 
         this._http.post(link, data)
             .subscribe(data => {
+
+              loading.dismiss();
+
               var data1 = data.json();
               if(data1.status == 'success'){
                 this.local = new Storage(LocalStorage);
@@ -84,7 +77,11 @@ export class SignUpPage {
 
                 this.navCtrl.push(SignUp2Page);
               }else{
-                alert('Error occured! try again.')
+                let toast = this.toastCtrl.create({
+                  message: data1.msg,
+                  duration: 5000
+                });
+                toast.present();
               }
             }, error => {
               console.log("Oooops!");
@@ -92,7 +89,30 @@ export class SignUpPage {
       });
 
 
-    }
+    }else{
+      var errortext='';
+
+      if(this.loginForm.controls['username'].hasError('required')){
+        errortext += 'Username is required\n';
+      }else if(this.loginForm.controls['username'].hasError('minlength')){
+        errortext += 'Minimum username length is 3!\n';
+      }else if(this.loginForm.controls['username'].hasError('maxlength')){
+        errortext += 'Maximum username length is 25!\n';
+      }else if(this.loginForm.controls['email'].hasError('required')){
+        errortext += 'Email is required\n';
+      }else if(this.loginForm.controls['password'].hasError('required')){
+        errortext += 'password is required\n';
+      }else if(this.loginForm.controls['password'].hasError('minlength')){
+        errortext += 'Minimum password length is 8!\n';
+      }
+
+      let toast = this.toastCtrl.create({
+        message: errortext,
+        duration: 5000
+      });
+      toast.present();
+
+    }*/
 
   }
 
