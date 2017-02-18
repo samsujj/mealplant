@@ -3,8 +3,9 @@ import { NavController } from 'ionic-angular';
 import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES} from '@angular/forms';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Http, Headers} from "@angular/http";
-import { Storage, LocalStorage,AlertController } from 'ionic-angular';
-import {SignUp3Page} from '../signup3/signup3';
+import { Storage, LocalStorage,AlertController,ToastController,LoadingController } from 'ionic-angular';
+import {SignUp7Page} from '../signup7/signup7';
+import {SignUpPage} from '../signup/signup';
 
 
 @Component({
@@ -13,8 +14,21 @@ import {SignUp3Page} from '../signup3/signup3';
 })
 export class SignUp6Page {
 
-  constructor(fb: FormBuilder, public navCtrl: NavController, private _http: Http,public alertCtrl: AlertController) {
+  private diettype:string = '';
+  private local:LocalStorage;
+  private userid;
 
+  constructor(fb: FormBuilder, public navCtrl: NavController, private _http: Http,public alertCtrl: AlertController,public toastCtrl: ToastController,public loadingCtrl: LoadingController) {
+    this.local = new Storage(LocalStorage);
+    this.local.get('insertid').then((value) => {
+      if(value!=null) {
+        this.userid = value;
+      }else{
+        this.navCtrl.push(SignUpPage);
+      }
+    }).catch((err)=>{
+      this.navCtrl.push(SignUpPage);
+    });
   }
 
   helpunit(){
@@ -26,8 +40,42 @@ export class SignUp6Page {
     alert.present();
   }
 
+  changeunit(unitval){
+    this.diettype = unitval;
+  }
+
   nextstep(){
-    this.navCtrl.push(SignUp3Page);
+    if(this.diettype == ''){
+      let toast = this.toastCtrl.create({
+        message: 'Please choose diet type',
+        duration: 2000
+      });
+      toast.present();
+    }else{
+
+      this.local = new Storage(LocalStorage);
+      this.local.set('diettype', this.diettype);
+
+      var link = 'http://184.168.146.185:1001/signup6';
+      var data = {userid: this.userid,diettype:this.diettype};
+
+      let loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+
+      loading.present();
+
+      this._http.post(link, data)
+          .subscribe(data => {
+
+            loading.dismiss();
+
+            this.navCtrl.push(SignUp7Page);
+          }, error => {
+            console.log("Oooops!");
+          });
+
+    }
   }
 
 }

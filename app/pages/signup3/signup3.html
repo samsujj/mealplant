@@ -10,11 +10,13 @@
   <div class="main-content">
 
     <div class="text-area">
-      <p>Tell us about yourself</p>
+      <p>Tell us about yourself  {{unittype}}</p>
 
-      <ion-item>
+
+
+      <ion-item *ngIf="unittype == 'imperial'">
         <ion-label>Height</ion-label>
-        <ion-select placeholder="0'">
+        <ion-select placeholder="0'" (ionChange)="changeheight1($event)">
           <ion-option value="2">2'</ion-option>
           <ion-option value="3">3'</ion-option>
           <ion-option value="4">4'</ion-option>
@@ -23,7 +25,7 @@
           <ion-option value="7">7'</ion-option>
           <ion-option value="8">8'</ion-option>
         </ion-select>
-        <ion-select placeholder='0"'>
+        <ion-select placeholder='0"' (ionChange)="changeheightinch($event)">
           <ion-option value="0">0"</ion-option>
           <ion-option value="1">1"</ion-option>
           <ion-option value="2">2"</ion-option>
@@ -39,27 +41,36 @@
         </ion-select>
       </ion-item>
 
-      <ion-item>
+      <ion-item color="secondary" *ngIf="unittype == 'metric'">
+        <ion-label color="primary" fixed>Height</ion-label>
+        <ion-input type="number" placeholder="cm" (keyup)="changeheight($event.target.value)" value="{{height}}"></ion-input>
+      </ion-item>
+
+      <ion-item color="secondary">
         <ion-label color="primary" fixed>Weight</ion-label>
-        <ion-input type="number" placeholder="lbs"></ion-input>
+        <ion-input type="number" placeholder="{{(unittype == 'imperial')?'lbs':'kg'}}" (keyup)="changeweight($event.target.value)"></ion-input>
       </ion-item>
 
       <div class="btnarea">
-        <input type="button" class="btn" value="Male">
-        <input type="button" class="btn active" value="Female">
+        <div class="btnsubare">
+          <input type="button" class="btn" value="Male" ngClass="{{(gender == 'male')?'active':''}}" (click)="changegender('male')">
+          <input type="button" class="btn" value="Female" ngClass="{{(gender == 'female')?'active':''}}" (click)="changegender('female')">
+        </div>
       </div>
 
 
       <ion-item>
         <ion-label color="primary" fixed>Age</ion-label>
-        <ion-input type="number"></ion-input>
+        <ion-input type="number"  (keyup)="changeage($event.target.value)"></ion-input>
       </ion-item>
 
-      <div class="btnarea2">
+      <div class="btnarea">
         <ion-label>Bodyfat</ion-label>
-        <input type="button" class="btn" value="Low">
-        <input type="button" class="btn" value="Medium">
-        <input type="button" class="btn active" value="High">
+        <div class="btnsubare">
+          <input type="button" class="btn" value="Low" ngClass="{{(fattype == 'low')?'active':''}}" (click)="changefattype('low')">
+          <input type="button" class="btn" value="Medium" ngClass="{{(fattype == 'medium')?'active':''}}" (click)="changefattype('medium')">
+          <input type="button" class="btn" value="High" ngClass="{{(fattype == 'high')?'active':''}}" (click)="changefattype('high')">
+        </div>
       </div>
 
     </div>

@@ -1,10 +1,14 @@
-<ion-header class="hide">
-  <ion-navbar>
-    <ion-title>
-      ionic
-    </ion-title>
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button menuToggle="right" (click)="menutog()">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="innerheader">Dashboard</ion-title>
   </ion-navbar>
 </ion-header>
+
+
+
 <ion-content class="has-header dashboard-page">
   <div class="container-fluid mainwrapper">
 
@@ -120,8 +124,6 @@
     </div></div>
 
   </div>
-
-  <button  [navPush]="logoutpage">Logout</button>
 
 
 

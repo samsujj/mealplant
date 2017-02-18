@@ -1,0 +1,171 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button menuToggle="right" (click)="menutog()">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="innerheader" style="display:inline-block; line-height: 40px;">Nutrition</ion-title>
+    <button (click)="cbcvbcvdgddf()" style=" float: right; background: transparent; border: none; box-shadow: none;">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content class="has-header nutrition-page">
+  <div class="container-fluid mainwrapper">
+
+    <ion-segment class="segment-area" (ionChange)="segmentChange($event)">
+      <ion-segment-button value="planner" class="segment-activated">
+        Planner
+      </ion-segment-button>
+      <ion-segment-button value="nextmeal">
+        Next Meal
+      </ion-segment-button>
+      <ion-segment-button value="groceries">
+        Groceries
+      </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="cursegment">
+      <div *ngSwitchCase="'planner'" class="planner-area">
+
+        <div class="block122" *ngIf="addedfood">
+          <div class="subblock122">
+            <h4>Select where you want to add</h4>
+            <h3>{{addedfoodname}}</h3>
+          </div>
+          <div class="subblock222">
+            <span (click)="cancelFood()">Cancel</span>
+          </div>
+        </div>
+
+        <div class="block1">
+          <div class="subblock1">
+            <ion-list>
+              <ion-item>
+                <ion-select placeholder="{{noofmealtxt}}" (ionChange)="changemeal($event)">
+                  <ion-option value="1" selected="{{noofmeal == 1}}">1 Meal</ion-option>
+                  <ion-option value="2" selected="{{noofmeal == 2}}">2 Meals</ion-option>
+                  <ion-option value="3" selected="{{noofmeal == 3}}">3 Meals</ion-option>
+                  <ion-option value="4" selected="{{noofmeal == 4}}">4 Meals</ion-option>
+                  <ion-option value="5" selected="{{noofmeal == 5}}">5 Meals</ion-option>
+                  <ion-option value="6" selected="{{noofmeal == 6}}">6 Meals</ion-option>
+                  <ion-option value="7" selected="{{noofmeal == 7}}">7 Meals</ion-option>
+                  <ion-option value="8" selected="{{noofmeal == 8}}">8 Meals</ion-option>
+                  <ion-option value="9" selected="{{noofmeal == 9}}">9 Meals</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+          </div>
+          <div class="subblock2">
+            Regenerate
+          </div>
+        </div>
+
+        <div class="block2">
+          <div class="subblock1" (click)="toggleprofile()">
+            <ion-icon name="arrow-dropup" ngClass="{{addhideclass(!isprofileshow)}}"></ion-icon>
+            <ion-icon name="arrow-dropdown" ngClass="{{addhideclass(isprofileshow)}}"></ion-icon>
+            Current Profile
+          </div>
+          <div class="subblock2" (click)="goeditpage()">
+            {{nutrititle}} <ion-icon name="settings"></ion-icon>
+          </div>
+        </div>
+
+        <div class="block3" ngClass="{{addhideclass(isprofileshow)}}">
+          <div class="list-div">
+            <div class="left-div">{{nutricalories}}</div>
+            <div class="right-div">Calorie Target</div>
+          </div>
+          <div class="list-div">
+            <div class="left-div">{{carbsrange}}</div>
+            <div class="right-div">Carbs</div>
+          </div>
+          <div class="list-div">
+            <div class="left-div">{{proteinrange}}</div>
+            <div class="right-div">Fat</div>
+          </div>
+          <div class="list-div">
+            <div class="left-div">{{fatrange}}</div>
+            <div class="right-div">Protein</div>
+          </div>
+        </div>
+
+        <div class="block2">
+          <div class="subblock1" (click)="togglediet()">
+            <ion-icon name="arrow-dropup" ngClass="{{addhideclass(!isprofileshow)}}"></ion-icon>
+            <ion-icon name="arrow-dropdown" ngClass="{{addhideclass(isprofileshow)}}"></ion-icon>
+            Current Diet Stat
+          </div>
+          <div class="subblock2">
+            {{nutricalories}} Calories
+          </div>
+        </div>
+
+        <div class="block3 block31" ngClass="{{addhideclass(isdietstat)}}">
+
+          <div class="left-div1">
+            <div class="list-div">
+              <div class="left-div">{{nutricalories}}</div>
+              <div class="right-div">Calories</div>
+            </div>
+            <div class="list-div">
+              <div class="left-div">{{carbsgm}}g</div>
+              <div class="right-div">Carbs</div>
+            </div>
+            <div class="list-div">
+              <div class="left-div">{{fatgm}}g</div>
+              <div class="right-div">Fat</div>
+            </div>
+            <div class="list-div">
+              <div class="left-div">{{proteingm}}g</div>
+              <div class="right-div">Protein</div>
+            </div>
+          </div>
+          <div class="right-div1" *ngIf="chartload">
+            <base-chart class="chart" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOption"></base-chart>
+          </div>
+
+        </div>
+
+
+        <div class="block4" *ngFor="let item of dietlist; let i = index" (click)="addfoodtomeal(item._id)">
+          <div class="block4">
+            <div class="subblock1">
+            <ion-icon name="settings"></ion-icon> {{item.name}}
+          </div>
+            <div class="subblock2">
+            {{item.calories}} Calories
+          </div>
+          </div>
+          <div class="block4102" *ngFor="let item2 of item.foodlist; let j = index">
+            <div class="subblock1">
+              <ion-img src="{{(item2.image != '')?filesrc+item2.image:'images/foodicon.ico'}}"></ion-img> {{item2.foodname}}
+            </div>
+            <div class="subblock2"></div>
+          </div>
+          <div class="block4102" *ngFor="let item3 of item.recipelist; let k = index">
+            <div class="subblock1">
+              <ion-img src="{{(item3.image != '')?filesrc+item3.image:'images/foodicon.ico'}}"></ion-img> {{item3.receipename}}
+            </div>
+            <div class="subblock2"></div>
+          </div>
+        </div>
+
+
+      </div>
+      <div *ngSwitchCase="'nextmeal'">
+        Coming Soon
+      </div>
+      <div *ngSwitchCase="'groceries'">
+        Coming Soon
+      </div>
+    </div>
+
+  </div>
+
+
+
+</ion-content>

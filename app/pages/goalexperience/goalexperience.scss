@@ -1,0 +1,47 @@
+
+.experience-page{
+  background:url(../../images/bg.jpg); background-size:cover;
+  font-family:'robotobold';
+
+  .mainwrapper{
+    background: #324065;
+    width:95%;
+    margin:10px auto;
+    padding-bottom: 30px;
+
+    h2{
+      color: #FFFFFF;
+      text-align: center;
+      margin: 0;
+      padding: 15px 0;
+    }
+
+    .experince-field-area{
+      color: #FFFFFF;
+      padding: 0 20px;
+
+      h3{
+        font-size: 20px;
+      }
+
+      .exp-val-area{
+        background-color: #00FF00;
+        padding: 10px 15px;
+        display: inline-block;
+        border-radius: 5px;
+      }
+
+
+    }
+
+  }
+
+}
+
+
+.action-sheet-cancel{
+  text-align: center;
+  span{
+    display: inline;
+  }
+}

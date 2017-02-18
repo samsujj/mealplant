@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button menuToggle="right" (click)="menutog()">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="innerheader">Experience & Goals</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content class="has-header experience-page">
+  <div class="container-fluid mainwrapper">
+    <h2>Experience & Goals</h2>
+
+    <div class="experince-field-area">
+      <h3>Resistant Training : </h3>
+      <span class="exp-val-area " (click)="addrestraining()">{{resistant_training}}  <ion-icon name="arrow-dropdown"></ion-icon></span>
+    </div>
+
+    <div class="experince-field-area">
+      <h3>Cardio Training : </h3>
+      <span class="exp-val-area " (click)="addcardtraining()">{{cardio_training}}  <ion-icon name="arrow-dropdown"></ion-icon></span>
+    </div>
+
+    <div class="experince-field-area">
+      <h3>First Pririty : </h3>
+      <span class="exp-val-area " (click)="addpriority1()">{{priority1}}  <ion-icon name="arrow-dropdown"></ion-icon></span>
+    </div>
+
+    <div class="experince-field-area">
+      <h3>Second Pririty : </h3>
+      <span class="exp-val-area " (click)="addpriority2()">{{priority2}}  <ion-icon name="arrow-dropdown"></ion-icon></span>
+    </div>
+
+    <div class="experince-field-area">
+      <h3>Third Pririty : </h3>
+      <span class="exp-val-area " (click)="addpriority3()">{{priority3}}  <ion-icon name="arrow-dropdown"></ion-icon></span>
+    </div>
+
+  </div>
+
+
+
+</ion-content>

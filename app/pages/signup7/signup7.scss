@@ -1,0 +1,101 @@
+.signupcontent2header{
+  .back-button{
+    display: none;
+  }
+}
+
+
+.signupcontent7 {
+  background: rgba(0, 0, 0, .6) url("../../images/home_back.jpg") no-repeat center;
+  background-size: cover;
+  padding: 0;
+  scroll-content {
+    padding: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .text-area{
+    background: rgba(0, 0, 0, 0.7);
+    padding:0 10px 15px 10px;
+
+    ion-label{
+      color: #FFFFFF;
+      display: block;
+    }
+
+    .toolbar-title{
+      color: #FFFFFF;
+      padding: 0;
+    }
+
+    .item{
+      background: none;
+      color: #FFFFFF;
+      border-top: none !important;
+
+
+
+      ion-col{
+        white-space: normal;
+      }
+
+      ion-col:last-child{
+        font-weight: 800;
+      }
+
+    }
+
+    .newitemlist{
+
+      .item{
+        display: block;
+
+
+        .item-inner{
+          display: inline-block;
+
+          .input-wrapper{
+            display: inline-block;
+
+
+          }
+        }
+
+      }
+
+      .newItem{
+        border: none !important;
+        width: auto;
+        display: block;
+        margin: 5px;
+        font-size: 18px;
+        border-radius : 0;
+        background: #68e911;
+        box-shadow: none;
+        float: left;
+        border: none;
+        padding: 8px;
+        line-height: 14px;
+        min-height: auto;
+
+        .item-inner{
+          border: none !important;
+          padding: 0;
+
+          ion-label{
+            margin: 0;
+          }
+
+        }
+
+      }
+
+
+    }
+
+  }
+
+
+
+}
+

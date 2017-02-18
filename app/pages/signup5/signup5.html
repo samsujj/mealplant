@@ -12,11 +12,11 @@
     <div class="text-area">
       <p>How active are you?  <ion-icon name="help-circle" (click)="helpunit()"></ion-icon></p>
 
-      <input type="button" class="btn" value="Sedentary">
-      <input type="button" class="btn" value="Lightly Active">
-      <input type="button" class="btn" value="Moderately Active">
-      <input type="button" class="btn" value="Very Active">
-      <input type="button" class="btn" value="Extremely Active">
+      <input type="button" class="btn" value="Sedentary" ngClass="{{(activetype == 'sedentary')?'active':''}}" (click)="changtype('sedentary')">
+      <input type="button" class="btn" value="Lightly Active" ngClass="{{(activetype == 'lightly')?'active':''}}" (click)="changtype('lightly')">
+      <input type="button" class="btn" value="Moderately Active" ngClass="{{(activetype == 'moderately')?'active':''}}" (click)="changtype('moderately')">
+      <input type="button" class="btn" value="Very Active" ngClass="{{(activetype == 'very')?'active':''}}" (click)="changtype('very')">
+      <input type="button" class="btn" value="Extremely Active" ngClass="{{(activetype == 'extremely')?'active':''}}" (click)="changtype('extremely')">
     </div>
 
 

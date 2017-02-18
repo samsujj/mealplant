@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title class="innerheader">Add a food/recipe</ion-title>
+  </ion-navbar>
+  <button class="createbtn" (click)="addnew1()">Create</button>
+</ion-header>
+
+
+
+<ion-content class="has-header nutrition-page">
+  <div class="container-fluid mainwrapper">
+
+    <ion-segment class="segment-area" (ionChange)="segmentChange($event)">
+      <ion-segment-button value="recipes" class="segment-activated">
+        Recipes
+      </ion-segment-button>
+      <ion-segment-button value="genfoods">
+        Generic Foods
+      </ion-segment-button>
+      <ion-segment-button value="restfoods">
+        Restaurant Foods
+      </ion-segment-button>
+      <ion-segment-button value="brandfoods">
+        Branded Foods
+      </ion-segment-button>
+      <ion-segment-button value="customrecipes">
+        Custom Recipes
+      </ion-segment-button>
+      <ion-segment-button value="customfoods">
+        Custom Foods
+      </ion-segment-button>
+    </ion-segment>
+
+
+    <div [ngSwitch]="cursegment">
+      <div *ngSwitchCase="'recipes'" class="planner-area">
+          <div class="block11">
+            Found {{recipeno}} Recipes
+          </div>
+          <div class="block41" *ngFor="let item of recipelist; let i = index">
+              <div class="subblock1" (click)="showrecipe(item)">
+                <ion-img src="{{(item.image != '')?filesrc+item.image:'images/foodicon.ico'}}"></ion-img> {{item.receipename}}
+              </div>
+              <div class="subblock2" (click)="addrecipe(item)">
+                  Add <ion-icon name="add"></ion-icon>
+              </div>
+          </div>
+      </div>
+      <div *ngSwitchCase="'genfoods'" class="planner-area">
+        <div class="block11">
+          Found {{genericfoodno}} Foods
+        </div>
+        <div class="block41" *ngFor="let item of genericfoodlist; let i = index">
+          <div class="subblock1" (click)="showfood(item)">
+            <ion-img src="{{(item.image != '')?filesrc+item.image:'images/foodicon.ico'}}"></ion-img> {{item.foodname}}
+          </div>
+          <div class="subblock2" (click)="addfood(item)">
+            Add <ion-icon name="add"></ion-icon>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'restfoods'" class="planner-area">
+        <div class="block11">
+          Found {{restaurantfoodno}} Foods
+        </div>
+        <div class="block41" *ngFor="let item of restaurantfoodlist; let i = index">
+          <div class="subblock1" (click)="showfood(item)">
+            <ion-img src="{{(item.image != '')?filesrc+item.image:'images/foodicon.ico'}}"></ion-img> {{item.foodname}}
+          </div>
+          <div class="subblock2" (click)="addfood(item)">
+            Add <ion-icon name="add"></ion-icon>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'brandfoods'" class="planner-area">
+        <div class="block11">
+          Found {{brandedfoodno}} Foods
+        </div>
+        <div class="block41" *ngFor="let item of brandedfoodlist; let i = index">
+          <div class="subblock1" (click)="showfood(item)">
+            <ion-img src="{{(item.image != '')?filesrc+item.image:'images/foodicon.ico'}}"></ion-img> {{item.foodname}}
+          </div>
+          <div class="subblock2" (click)="addfood(item)">
+            Add <ion-icon name="add"></ion-icon>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'customrecipes'" class="planner-area">
+        <div class="block11">
+          Found {{customrecipeno}} Recipes
+        </div>
+        <div class="block41" *ngFor="let item of customrecipelist; let i = index">
+          <div class="subblock1" (click)="showrecipe(item)">
+            <ion-img src="{{(item.image != '')?filesrc+item.image:'images/foodicon.ico'}}"></ion-img> {{item.receipename}}
+          </div>
+          <div class="subblock2" (click)="addrecipe(item)">
+            Add <ion-icon name="add"></ion-icon>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'customfoods'" class="planner-area">
+        <div class="block11">
+          Found {{customfoodno}} Foods
+        </div>
+        <div class="block41" *ngFor="let item of customfoodlist; let i = index">
+          <div class="subblock1" (click)="showfood(item)">
+            <ion-img src="{{(item.image != '')?filesrc+item.image:'images/foodicon.ico'}}"></ion-img> {{item.foodname}}
+          </div>
+          <div class="subblock2" (click)="addfood(item)">
+            Add <ion-icon name="add"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+</ion-content>

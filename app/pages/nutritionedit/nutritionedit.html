@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Edit Nutrition Profile</ion-title>
+  </ion-navbar>
+  <button class="createbtn" (click)="updatenutrival(nutriForm.value)">Save</button>
+</ion-header>
+
+
+<ion-content class="signupcontent8">
+  <div class="main-content">
+
+    <div class="text-area">
+      <p>We're just about done setting up your account. Choose a profile name (or use the default) and tewak any other setting you'd like.</p>
+
+
+      <ion-item>
+        <ion-label color="primary" fixed>Title</ion-label>
+        <ion-input type="text" [formControl]="nutriForm.controls['nutrititle']"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" fixed>Calories</ion-label>
+        <ion-input type="number" [formControl]="nutriForm.controls['nutricalories']"></ion-input>
+      </ion-item>
+
+      <input type="button" class="showbtn" value="Show advanced option" (click)="showdivdrgdf()">
+
+
+      <form [formGroup]="nutriForm">
+        <div *ngIf="isShow==1" class="innerdiv1">
+          <div>
+            <p>Macronutrien targets   {{dualValue2}}</p>
+            <ion-segment>
+              <ion-segment-button value="range" (click)="selsegment('range')">
+                Within a range
+              </ion-segment-button>
+              <ion-segment-button value="calories" (click)="selsegment('calories')">
+                As a % of calories
+              </ion-segment-button>
+            </ion-segment>
+          </div>
+
+          <div [ngSwitch]="target">
+            <ion-list *ngSwitchCase="'range'">
+              <ion-item>
+                <ion-label color="primary" fixed>Carbs(g)</ion-label>
+                <ion-input type="number" [formControl]="nutriForm.controls['carbsmin']"></ion-input>
+                <ion-input type="number" [formControl]="nutriForm.controls['carbsmax']"></ion-input>
+              </ion-item>
+              <!--<ion-item>
+                <ion-range dualKnobs="true" min="0" max="300">
+                  <ion-label range-left>Min</ion-label>
+                  <ion-label range-right>Max</ion-label>
+                </ion-range>
+              </ion-item>-->
+              <ion-item>
+                <ion-label color="primary" fixed>Fat(g)</ion-label>
+                <ion-input type="number" [formControl]="nutriForm.controls['fatmin']"></ion-input>
+                <ion-input type="number" [formControl]="nutriForm.controls['fatmax']"></ion-input>
+              </ion-item>
+              <!--<ion-item>
+                <ion-range dualKnobs="true" min="50" max="300">
+                  <ion-label range-left>Min</ion-label>
+                  <ion-label range-right>Max</ion-label>
+                </ion-range>
+              </ion-item>-->
+              <ion-item>
+                <ion-label color="primary" fixed>Protein(g)</ion-label>
+                <ion-input type="number" [formControl]="nutriForm.controls['proteinmin']"></ion-input>
+                <ion-input type="number" [formControl]="nutriForm.controls['proteinmax']"></ion-input>
+              </ion-item>
+              <!--<ion-item>
+                <ion-range dualKnobs="true" min="0" max="300">
+                  <ion-label range-left>Min</ion-label>
+                  <ion-label range-right>Max</ion-label>
+                </ion-range>
+              </ion-item>-->
+            </ion-list>
+
+            <ion-list *ngSwitchCase="'calories'">
+              <ion-item>
+                <ion-label color="primary" fixed>Carbs(%)</ion-label>
+                <ion-input type="number" [formControl]="nutriForm.controls['carbspercententage']"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label color="primary" fixed>Fat(%)</ion-label>
+                <ion-input type="number" [formControl]="nutriForm.controls['fatpercententage']"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label color="primary" fixed>Protein(%)</ion-label>
+                <ion-input type="number" [formControl]="nutriForm.controls['proteinpercententage']"></ion-input>
+              </ion-item>
+            </ion-list>
+          </div>
+        </div>
+
+        <div *ngIf="isShow==1" class="innerdiv1">
+
+          <p>Macronutrien targets</p>
+          <ion-list>
+
+            <ion-item>
+              <ion-label>Limit the amount of sodium in plans?</ion-label>
+              <ion-toggle (ionChange)="changesodiumtoggle($event)"></ion-toggle>
+            </ion-item>
+
+            <ion-item *ngIf="issodiumshow">
+              <ion-label color="primary">Maximum sodium in mg</ion-label>
+              <ion-input type="number"  [formControl]="nutriForm.controls['sodium']"></ion-input>
+            </ion-item>
+
+            <!--<ion-item>
+              <ion-label>Limit the amount of cholesterol in plans?</ion-label>
+              <ion-toggle (ionChange)="changecholesteroltoggle($event)"></ion-toggle>
+            </ion-item>
+
+            <ion-item *ngIf="ischolesterolshow">
+              <ion-label color="primary">Maximum cholesterol in mg</ion-label>
+              <ion-input type="number"  [formControl]="nutriForm.controls['cholestrol']"></ion-input>
+            </ion-item>-->
+
+            <ion-item>
+              <ion-label color="primary">Maximum amount of fiber in g</ion-label>
+              <ion-input type="number"  [formControl]="nutriForm.controls['fiber']"></ion-input>
+            </ion-item>
+
+          </ion-list>
+        </div>
+      </form>
+
+
+    </div>
+
+
+  </div>
+
+</ion-content>

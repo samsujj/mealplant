@@ -1,0 +1,81 @@
+
+.bodycomposition-page{
+  background:url(../../images/bg.jpg); background-size:cover;
+  font-family:'robotobold';
+
+  .mainwrapper{
+    background: #324065;
+    width:95%;
+    margin:10px auto;
+
+    .new-btn-div{
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .addnewbtn{
+      display: block;
+      margin: 0 auto;
+      font-size: 30px;
+      border-radius:6px;
+      width:250px!important;
+      height:60px;
+      font-family: 'robotobold';
+      text-shadow:0 0 2px #111;
+      text-align:center;
+      line-height:60px;
+      background: rgba(103,232,17,1);
+      background: -moz-linear-gradient(top, rgba(103,232,17,1) 0%, rgba(12,190,12,1) 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(103,232,17,1)), color-stop(100%, rgba(12,190,12,1)));
+      background: -webkit-linear-gradient(top, rgba(103,232,17,1) 0%, rgba(12,190,12,1) 100%);
+      background: -o-linear-gradient(top, rgba(103,232,17,1) 0%, rgba(12,190,12,1) 100%);
+      background: -ms-linear-gradient(top, rgba(103,232,17,1) 0%, rgba(12,190,12,1) 100%);
+      background: linear-gradient(to bottom, rgba(103,232,17,1) 0%, rgba(12,190,12,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#67e811', endColorstr='#0cbe0c', GradientType=0 );
+    }
+
+    .select-area{
+      text-align: center;
+      padding: 15px 0;
+      .select-box{
+        border: none;
+        color: #FFFFFF;
+        font-size: 18px;
+        padding: 15px 5px;
+        background: none;
+      }
+
+
+      .editbtn{
+        background: rgba(103,232,17,1);
+        background: -moz-linear-gradient(top, rgba(103,232,17,1) 0%, rgba(12,190,12,1) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(103,232,17,1)), color-stop(100%, rgba(12,190,12,1)));
+        background: -webkit-linear-gradient(top, rgba(103,232,17,1) 0%, rgba(12,190,12,1) 100%);
+        background: -o-linear-gradient(top, rgba(103,232,17,1) 0%, rgba(12,190,12,1) 100%);
+        background: -ms-linear-gradient(top, rgba(103,232,17,1) 0%, rgba(12,190,12,1) 100%);
+        background: linear-gradient(to bottom, rgba(103,232,17,1) 0%, rgba(12,190,12,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#67e811', endColorstr='#0cbe0c', GradientType=0 );
+      }
+
+    }
+
+    .chart-area{
+      padding: 20px 0;
+
+
+
+      h2{
+        color: #ffffff;
+        font-size: 20px;
+        padding: 0 10px;
+        margin-top: 0;
+      }
+
+      .fatChartArea{
+        color: #ffffff;
+      }
+    }
+
+  }
+
+}

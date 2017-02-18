@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title class="innerheader">{{foodtitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content class="has-header">
+  <div class="container-fluid mainwrapper">
+
+    <div class="imgblock" [style.backgroundImage]=" 'url('+imagepath+')'"></div>
+    <div class="addimagblock"><input type="button" value="Add Image" (click)="addPhoto()"></div>
+
+    <div class="ingarea" *ngIf="fooddetails">
+      <ion-label>Nutrition</ion-label>
+      <div class="block3 block31">
+
+        <div class="left-div1">
+          <div class="list-div">
+            <div class="left-div">{{fooddetails.calories}}</div>
+            <div class="right-div">Calories</div>
+          </div>
+          <div class="list-div">
+            <div class="left-div">{{fooddetails.carbs}}g</div>
+            <div class="right-div">Carbs</div>
+          </div>
+          <div class="list-div">
+            <div class="left-div">{{fooddetails.fat}}g</div>
+            <div class="right-div">Fat</div>
+          </div>
+          <div class="list-div">
+            <div class="left-div">{{fooddetails.protein}}g</div>
+            <div class="right-div">Protein</div>
+          </div>
+        </div>
+        <div class="right-div1">
+          <base-chart class="chart" [data]="piechartdata" [chartType]="pieChartType" [options]="pieChartOption"></base-chart>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="ingarea" *ngIf="fooddetails">
+      <ion-label>Serving Information</ion-label>
+      <div class="servingdet">
+        <ul>
+          <li>
+            For a serving size of {{fooddetails.servingsize}} {{fooddetails.servingtype}}
+          </li>
+          <li>
+            Calories   {{fooddetails.calories}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</ion-content>

@@ -1,0 +1,109 @@
+
+.add-custom-food-page{
+  background:url(../../images/bg.jpg); background-size:cover;
+  font-family:'robotobold';
+
+  .back-button{
+    display: block;
+  }
+
+  ion-content{
+    background: #324065;
+
+    .mainwrapper {
+      background: #324065;
+      width: 95%;
+      margin: 10px auto;
+
+
+      .text-area{
+        background: rgba(0, 0, 0, 0.7);
+        padding: 15px 10px;
+        text-align: center;
+        p{
+          color: #FFFFFF;
+          font-size: 16px;
+          margin: 0 0 20px;
+        }
+
+        .item {
+          background: none;
+          color: #FFFFFF;
+
+          ion-label{
+            color: #FFFFFF;
+          }
+
+          .text-input{
+            text-align: right;
+          }
+
+        }
+
+        .showbtn{
+          width: 80%;
+          display: block;
+          margin: 40px auto;
+          font-size: 20px;
+          border-radius : 0;
+          background: #68e911;
+          color: #FFFFFF;
+          box-shadow: none;
+          line-height: 35px;
+          border: none;
+        }
+
+        .innerdiv1{
+
+          padding: 10px 0;
+
+          p{
+            font-size: 18px;
+          }
+
+          .item{
+            border-top: none;
+            padding: 0;
+          }
+
+          ion-segment{
+            padding-bottom: 15px;
+          }
+
+
+          .segment-button{
+
+            width: auto;
+            display: block;
+            margin: 0 5px;
+            font-size: 15px;
+            border-radius : 0;
+            background: #FFFFFF;
+            box-shadow: none;
+            min-height: auto;
+            float: left;
+            border: none;
+            padding: 0 15px;
+            color: #000000;
+          }
+          .segment-activated{
+            background: #68e911;
+            color: #FFFFFF;
+          }
+
+        }
+
+
+        .loginbtn{
+          background: #68e911;
+          margin-top: 10px;
+        }
+
+
+      }
+
+    }
+
+  }
+
+}

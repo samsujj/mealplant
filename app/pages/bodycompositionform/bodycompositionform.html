@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button menuToggle="right" (click)="menutog()">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="innerheader">Body Composition</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content class="has-header bodycompositionform-page">
+  <div class="container-fluid mainwrapper" ngClass="{{addhideclass(isLoad)}}">
+    <div class="forma-area">
+      <h2>Body Composition</h2>
+      <form novalidate [formGroup]="formgr" (ngSubmit)="signup2(formgr.value)" class="formTag">
+
+        <ion-list>
+          <ion-item>
+            <h3>Height</h3>
+            <span class="unitspan" *ngIf="unittype == 'imperial'">in</span>
+            <span class="valspan" *ngIf="unittype == 'imperial'">{{heightinch}}</span>
+            <span class="unitspan" ngClass="{{unittypeclass()}}">{{unittype == 'imperial'?'ft':'cm'}}</span>
+            <span class="valspan">{{height}}</span>
+          </ion-item>
+          <ion-item>
+            <ion-label>Weight</ion-label>
+            <ion-input type="number" placeholder="lb" [formControl]="formgr.controls['weight']"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Waist</ion-label>
+            <ion-input type="number" placeholder="in" [formControl]="formgr.controls['waist']"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Neck</ion-label>
+            <ion-input type="number" placeholder="in" [formControl]="formgr.controls['neck']"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Hips</ion-label>
+            <ion-input type="number" placeholder="in" [formControl]="formgr.controls['hips']"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Wrist</ion-label>
+            <ion-input type="number" placeholder="in" [formControl]="formgr.controls['wrist']"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Navel</ion-label>
+            <ion-input type="number" placeholder="in" [formControl]="formgr.controls['navel']"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Chest</ion-label>
+            <ion-input type="number" placeholder="in" [formControl]="formgr.controls['chest']"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Bust</ion-label>
+            <ion-input type="number" placeholder="in" [formControl]="formgr.controls['bust']"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Shoulders</ion-label>
+            <ion-input type="number" placeholder="in" [formControl]="formgr.controls['shoulders']"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Arms Left</ion-label>
+            <ion-input type="number" placeholder="in" [formControl]="formgr.controls['armsl']"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Arms Right</ion-label>
+            <ion-input type="number" placeholder="in" [formControl]="formgr.controls['armsr']"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Forearms Left</ion-label>
+            <ion-input type="number" placeholder="in" [formControl]="formgr.controls['forearmsl']"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Forearms Right</ion-label>
+            <ion-input type="number" placeholder="in" [formControl]="formgr.controls['forearmsr']"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Thigh Left</ion-label>
+            <ion-input type="number" placeholder="in" [formControl]="formgr.controls['thighl']"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Thigh Right</ion-label>
+            <ion-input type="number" placeholder="in" [formControl]="formgr.controls['thighr']"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Calves Left</ion-label>
+            <ion-input type="number" placeholder="in" [formControl]="formgr.controls['calvesl']"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Calves Right</ion-label>
+            <ion-input type="number" placeholder="in" [formControl]="formgr.controls['calvesr']"></ion-input>
+          </ion-item>
+        </ion-list>
+
+        <div class="divarea">
+          <button type="submit" class="loginbtn" >Calculate</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+
+
+</ion-content>

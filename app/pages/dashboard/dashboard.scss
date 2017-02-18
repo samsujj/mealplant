@@ -45,11 +45,11 @@
 
   .mainwrapper{
     width:100%;
-    margin:30px auto;
+    margin:0 auto 30px;
 
     @media(max-width:767px) {
       width:90%;
-      margin:30px auto;
+      margin:0 auto 30px;
     }
 
     .block1{
@@ -338,3 +338,7 @@
   }
 
 }
+
+
+
+

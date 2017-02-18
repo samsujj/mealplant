@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Page, Platform,NavController} from 'ionic-angular';
+import {Page, Platform,NavController,MenuController} from 'ionic-angular';
 import {SignUpPage} from '../signup/signup'
 import {Facebook} from 'ionic-native'
 import {isArray} from "rxjs/util/isArray";
@@ -25,10 +25,12 @@ export class DashboardPage {
 
 
 
-  constructor(platform:Platform,public navCtrl: NavController) {
+  constructor(platform:Platform,public navCtrl: NavController,public menuCtrl: MenuController) {
     platform.ready().then((readySource) => {
       console.log(readySource);
     });
+
+    this.menuCtrl.open();
 
     this.userdetails = '';
 
@@ -41,7 +43,7 @@ export class DashboardPage {
     this.local.get('userdetails').then((value) => {
       if(value!=null) {
         this.userdetails=JSON.parse(value);
-        this.username = this.userdetails.fname+' '+this.userdetails.lname;
+        this.username = this.userdetails.username;
         console.log(this.userdetails);
       }
       else{
@@ -61,6 +63,10 @@ export class DashboardPage {
     }
 
     return '';
+  }
+
+  menutog(){
+    this.menuCtrl.open();
   }
 
 

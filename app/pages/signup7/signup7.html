@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Alleergies</ion-title>
+  </ion-navbar>
+  <button class="createbtn" (click)="nextstep()">Next</button>
+</ion-header>
+
+
+<ion-content class="signupcontent7">
+  <div class="main-content">
+
+    <div class="text-area">
+      <ion-list>
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col width-50>Your diet type automatically excludes:</ion-col>
+              <ion-col width-50>{{automaticallyexcludes}}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="newitemlist">
+        <ion-label stacked>I don't want to eat</ion-label>
+        <ion-item class="newItem" *ngFor="let item of exc_list" (click)="removeitem(item)">{{item}}</ion-item>
+        <ion-item>
+          <ion-textarea  (keyup)="changetxtval($event)"></ion-textarea>
+        </ion-item>
+      </ion-list>
+
+
+      <ion-list>
+        <ion-title>Exclusion Suggession</ion-title>
+        <ion-label>Allergies</ion-label>
+        <ion-item (click)="selctitem('Gluten')">Gluten<ion-icon name="checkmark-circle" item-right *ngIf="isshow('Gluten')"></ion-icon></ion-item>
+        <ion-item (click)="selctitem('Tree Nuts')">Tree Nuts<ion-icon name="checkmark-circle" item-right *ngIf="isshow('Tree Nuts')"></ion-icon></ion-item>
+        <ion-item (click)="selctitem('Peanut')">Peanut<ion-icon name="checkmark-circle" item-right *ngIf="isshow('Peanut')"></ion-icon></ion-item>
+        <ion-item (click)="selctitem('Egggs')">Egggs<ion-icon name="checkmark-circle" item-right *ngIf="isshow('Egggs')"></ion-icon></ion-item>
+        <ion-item (click)="selctitem('Soy')">Soy<ion-icon name="checkmark-circle" item-right *ngIf="isshow('Soy')"></ion-icon></ion-item>
+        <ion-item (click)="selctitem('Fish')">Fish<ion-icon name="checkmark-circle" item-right *ngIf="isshow('Fish')"></ion-icon></ion-item>
+        <ion-item (click)="selctitem('Shellfish')">Shellfish<ion-icon name="checkmark-circle" item-right *ngIf="isshow('Shellfish')"></ion-icon></ion-item>
+      </ion-list>
+
+
+    </div>
+
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button menuToggle="right" (click)="menutog()">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="innerheader">Progress Tracker</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content class="has-header progresstracker-page">
+  <div class="container-fluid mainwrapper">
+    <ion-segment class="segment-area" (ionChange)="segmentChange($event)">
+      <ion-segment-button value="graph" class="segment-activated">
+        Graph
+      </ion-segment-button>
+      <ion-segment-button value="list">
+        List
+      </ion-segment-button>
+      <!--<ion-segment-button value="composition">
+        Body Composition
+      </ion-segment-button>
+      <ion-segment-button value="photo">
+        Photo
+      </ion-segment-button>-->
+    </ion-segment>
+
+    <div [ngSwitch]="cursegment">
+      <div *ngSwitchCase="'graph'" class="graph-area">
+        <h2>Weight</h2>
+        <base-chart  *ngIf="isLoad" class="chart"
+                     [datasets]="barChartData"
+                     [labels]="barChartLabels"
+                     [options]="barChartOptions"
+                     [legend]="barChartLegend"
+                     [colors]="barChartColors"
+                     [chartType]="barChartType"></base-chart>
+      </div>
+      <div *ngSwitchCase="'list'" class="list-area">
+        <h2>Weight</h2>
+        <ion-list>
+          <ion-item *ngFor="let item of compositionlist; let i=index;">
+            <h3>{{getDateStr(item)}}</h3>
+            <span>{{item.weight}} lbs</span>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div *ngSwitchCase="'composition'">
+        composition
+      </div>
+      <div *ngSwitchCase="'photo'">
+        photo
+      </div>
+    </div>
+
+  </div>
+
+
+
+</ion-content>

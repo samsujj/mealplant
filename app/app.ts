@@ -3,6 +3,12 @@ import {ionicBootstrap, Platform, MenuController, Nav} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
 import {ListPage} from './pages/list/list';
+import {DashboardPage} from './pages/dashboard/dashboard';
+import {LogoutPage} from './pages/logout/logout';
+import {BodyCompositionPage} from './pages/bodycomposition/bodycomposition';
+import {GoalExperiencePage} from './pages/goalexperience/goalexperience';
+import {ProgressTrackerPage} from './pages/progresstracker/progresstracker';
+import {NutritionPage} from './pages/nutrition/nutrition';
 
 
 @Component({
@@ -23,8 +29,12 @@ class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage }
+      { title: 'Dashboard', component: DashboardPage },
+      { title: 'Body Composition', component: BodyCompositionPage },
+      { title: 'Progress Tracker', component: ProgressTrackerPage },
+      { title: 'Experience & Goals', component: GoalExperiencePage },
+      { title: 'Nutrition', component: NutritionPage },
+      { title: 'Logout', component: LogoutPage }
     ];
   }
 

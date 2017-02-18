@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+  <button class="createbtn" (click)="doSubmit(loginForm.value)">Login</button>
+</ion-header>
+
+
+<ion-content class="signupcontent">
+  <div class="main-content">
+
+    <div class="forma-area">
+      <h2>Log In</h2>
+      <form novalidate [formGroup]="loginForm" (ngSubmit)="doSubmit(loginForm.value)" class="formTag">
+
+
+        <ion-list>
+
+          <ion-item>
+            <ion-label floating>Username</ion-label>
+            <ion-input type="text" [formControl]="loginForm.controls['username']"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" [formControl]="loginForm.controls['password']"></ion-input>
+          </ion-item>
+
+        </ion-list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <button type="submit" class="loginbtn" >Login</button>
+        <!--<button [navPush]="signup2" class="loginbtn" >Sign up</button>-->
+      </form>
+    </div>
+
+    <!--    <div class="dividediv">
+        </div>
+
+        <div class="footer">
+          <div class="btnarea">
+            <button (click)="login()"  class="button-fblogin"><span class="newbtn2">Login With Facebook</span></button>
+          </div>
+        </div>
+    -->
+  </div>
+
+</ion-content>

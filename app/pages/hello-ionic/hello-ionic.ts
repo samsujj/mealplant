@@ -9,6 +9,7 @@ import {FatCalculatePage} from '../fat-calculate/fat-calculate';
 import {DashboardPage} from '../dashboard/dashboard';
 import {Http, Headers} from "@angular/http";
 import {FbSignUpPage} from '../fbsignup/fbsignup';
+import {LoginPage} from '../login/login';
 import {Splashscreen} from 'ionic-native';
 
 @Component({
@@ -17,6 +18,7 @@ import {Splashscreen} from 'ionic-native';
 })
 export class HelloIonicPage {
   signupPage=SignUpPage;
+  loginpage=LoginPage;
   private  platform;
   private local:LocalStorage;
   private isloggedin;

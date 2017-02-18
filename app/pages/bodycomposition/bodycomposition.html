@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button menuToggle="right" (click)="menutog()">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="innerheader">Body Composition</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content class="has-header bodycomposition-page">
+  <div class="container-fluid mainwrapper">
+    <div class="new-btn-div">
+      <button class="addnewbtn" (click)="addbcomposition()">Add New</button>
+    </div>
+    <div class="select-area" *ngIf="compositionlength">
+      <select (change)="changesel($event)" class="select-box">
+        <option *ngFor="let item of compositionlist; let i=index;" value="{{i}}">{{getDateStr(item)}}</option>
+      </select>
+
+      <div style="clear:both;"></div>
+
+      <button class="editbtn" (click)="editbcomposition()">Edit</button>
+      <button class="editbtn" (click)="delbcomposition()">Delete</button>
+    </div>
+
+    <div class="chart-area" *ngIf="compositionlength">
+      <h2>Estimated Body-Fat Percentage:	{{bodyfatpercentage}}% </h2>
+
+      <div class="fatChartArea">
+        <base-chart class="chart" [data]="getpieChartData()" [labels]="getpieChartLabels()" [chartType]="pieChartType" [options]="pieChartOption"></base-chart>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+</ion-content>

@@ -4,6 +4,8 @@ import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES} from '@angular/forms';
 import {FormBuilder, FormGroup, Validators,FormControl} from '@angular/forms';
 import {Http, Headers} from "@angular/http";
 import {SignUp2Page} from '../signup2/signup2';
+import {SignUp6Page} from '../signup6/signup6';
+import {SignUp8Page} from '../signup8/signup8';
 import { Control, ControlGroup } from "@angular/common";
 import { Storage, LocalStorage } from 'ionic-angular';
 import { ActionSheetController,LoadingController,AlertController,ToastController } from 'ionic-angular';
@@ -39,13 +41,21 @@ export class SignUpPage {
       email: ["", Validators.required],
       password: ["", Validators.compose([Validators.required, Validators.minLength(8)])],
     });
+
+
+    this.local = new Storage(LocalStorage);
+    this.local.get('insertid').then((value) => {
+      if(value!=null) {
+        this.navCtrl.push(SignUp2Page);
+      }
+    });
+
+
   }
 
   doSubmit(event){
-    this.navCtrl.push(SignUp2Page);
 
-
-    /*let x:any;
+    let x:any;
 
     if(this.loginForm.valid){
 
@@ -79,7 +89,7 @@ export class SignUpPage {
               }else{
                 let toast = this.toastCtrl.create({
                   message: data1.msg,
-                  duration: 5000
+                  duration: 3000
                 });
                 toast.present();
               }
@@ -108,11 +118,11 @@ export class SignUpPage {
 
       let toast = this.toastCtrl.create({
         message: errortext,
-        duration: 5000
+        duration: 3000
       });
       toast.present();
 
-    }*/
+    }
 
   }
 

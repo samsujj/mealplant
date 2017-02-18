@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title class="innerheader">Create food</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content class="has-header">
+  <div class="container-fluid mainwrapper">
+
+    <div class="text-area">
+      <ion-item>
+        <ion-label color="primary" fixed>Food name</ion-label>
+        <ion-input type="text" [formControl]="nutriForm.controls['foodname']"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" fixed>Food Description</ion-label>
+        <ion-input type="text" [formControl]="nutriForm.controls['descripttion']"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" fixed>Calories</ion-label>
+        <ion-input type="number" [formControl]="nutriForm.controls['calories']" plceholder="kcal"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" fixed>Carbs</ion-label>
+        <ion-input type="number" [formControl]="nutriForm.controls['carbs']" plceholder="grams"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" fixed>Fat</ion-label>
+        <ion-input type="number" [formControl]="nutriForm.controls['fat']" plceholder="grams"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" fixed>Protein</ion-label>
+        <ion-input type="number" [formControl]="nutriForm.controls['protein']" plceholder="grams"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" fixed>Price</ion-label>
+        <ion-input type="number" [formControl]="nutriForm.controls['price']" plceholder="USD"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" fixed>Seving Size</ion-label>
+        <ion-input type="number" [formControl]="nutriForm.controls['servingsize']"></ion-input>
+        <ion-input type="text" [formControl]="nutriForm.controls['servingtype']"></ion-input>
+      </ion-item>
+
+      <button type="button" class="loginbtn" (click)="dosubmit111(nutriForm.value)">Save</button>
+
+    </div>
+
+  </div>
+
+
+
+</ion-content>

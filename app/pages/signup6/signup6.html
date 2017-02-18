@@ -12,12 +12,12 @@
     <div class="text-area">
       <p>Do you want to follow a specific type of diet?  <ion-icon name="help-circle" (click)="helpunit()"></ion-icon></p>
 
-      <input type="button" class="btn" value="Anything">
-      <input type="button" class="btn" value="Paleo">
-      <input type="button" class="btn" value="Vegeterian">
-      <input type="button" class="btn" value="Vegan">
-      <input type="button" class="btn" value="Atkins / Ketogenic">
-      <input type="button" class="btn" value="Mediterranean">
+      <input type="button" class="btn" value="Anything" ngClass="{{(diettype == 'anything')?'active':''}}" (click)="changeunit('anything')">
+      <input type="button" class="btn" value="Paleo" ngClass="{{(diettype == 'paleo')?'active':''}}" (click)="changeunit('paleo')">
+      <input type="button" class="btn" value="Vegeterian" ngClass="{{(diettype == 'vegeterian')?'active':''}}" (click)="changeunit('vegeterian')">
+      <input type="button" class="btn" value="Vegan" ngClass="{{(diettype == 'vegan')?'active':''}}" (click)="changeunit('vegan')">
+      <input type="button" class="btn" value="Atkins / Ketogenic" ngClass="{{(diettype == 'atkins')?'active':''}}" (click)="changeunit('atkins')">
+      <input type="button" class="btn" value="Mediterranean" ngClass="{{(diettype == 'mediterranean')?'active':''}}" (click)="changeunit('mediterranean')">
     </div>
 
 

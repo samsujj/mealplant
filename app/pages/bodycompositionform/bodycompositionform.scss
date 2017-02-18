@@ -1,0 +1,88 @@
+
+.bodycompositionform-page{
+  background:url(../../images/bg.jpg); background-size:cover;
+  font-family:'robotobold';
+
+  .mainwrapper{
+    background: #324065;
+    width:95%;
+    margin:10px auto;
+
+    .forma-area {
+
+      h2 {
+        color: #ffffff;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-family: 'robotobold';
+        font-size: 30px;
+        text-shadow: 0 0 2px #111;
+        text-align: center;
+        margin: 0px;
+        padding: 20px 0;
+      }
+    }
+
+
+    .divarea{
+      padding-top: 15px;
+      padding-bottom: 15px;
+      margin: 0 auto;
+
+      .loginbtn {
+        display: block;
+        margin: 0 auto;
+        background-color: #00ff00;
+        font-size: 30px; border-radius:6px; width:250px!important; height:60px;    font-family: 'robotobold';
+        text-shadow:0 0 2px #111; text-align:center; line-height:60px; background: rgba(103,232,17,1);
+        background: -moz-linear-gradient(top, rgba(103,232,17,1) 0%, rgba(12,190,12,1) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(103,232,17,1)), color-stop(100%, rgba(12,190,12,1)));
+        background: -webkit-linear-gradient(top, rgba(103,232,17,1) 0%, rgba(12,190,12,1) 100%);
+        background: -o-linear-gradient(top, rgba(103,232,17,1) 0%, rgba(12,190,12,1) 100%);
+        background: -ms-linear-gradient(top, rgba(103,232,17,1) 0%, rgba(12,190,12,1) 100%);
+        background: linear-gradient(to bottom, rgba(103,232,17,1) 0%, rgba(12,190,12,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#67e811', endColorstr='#0cbe0c', GradientType=0 );
+
+      }
+    }
+
+
+    .item {
+      background: #324065;
+      color: #FFFFFF;
+
+      h3{
+        float: left;
+        font-size: 20px;
+      }
+
+      ion-label{
+        float: left;
+        font-size: 20px;
+        color: #FFFFFF;
+      }
+
+      .valspan{
+        float: right;
+        color: #FFFFFF;
+        margin-right: 3px;
+      }
+
+      .unitspan{
+        float: right;
+        color: #FFFFFF;
+      }
+
+      .unitspan2{
+        margin-right: 15px;
+      }
+
+      .text-input{
+        text-align: right;
+      }
+
+    }
+
+  }
+
+}

@@ -1,0 +1,116 @@
+
+.add-food-for-recipe-page{
+  background:url(../../images/bg.jpg); background-size:cover;
+  font-family:'robotobold';
+
+  .back-button{
+    display: block;
+  }
+
+
+  .mainwrapper {
+    background: #324065;
+    width: 95%;
+    margin: 10px auto;
+
+    .segment-area {
+
+      .segment-button {
+        background: rgba(0, 0, 0, .4);
+        opacity: 1;
+        color: #FFFFFF;
+        overflow: unset;
+      }
+
+      .activated {
+        border: none;
+      }
+
+      .segment-activated {
+        background: -moz-linear-gradient(top, rgba(103, 232, 17, 1) 0%, rgba(12, 190, 12, 1) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(103, 232, 17, 1)), color-stop(100%, rgba(12, 190, 12, 1)));
+        background: -webkit-linear-gradient(top, rgba(103, 232, 17, 1) 0%, rgba(12, 190, 12, 1) 100%);
+        background: -o-linear-gradient(top, rgba(103, 232, 17, 1) 0%, rgba(12, 190, 12, 1) 100%);
+        background: -ms-linear-gradient(top, rgba(103, 232, 17, 1) 0%, rgba(12, 190, 12, 1) 100%);
+        background: linear-gradient(to bottom, rgba(103, 232, 17, 1) 0%, rgba(12, 190, 12, 1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#67e811', endColorstr='#0cbe0c', GradientType=0);
+
+        border: none;
+      }
+
+    }
+
+
+    ion-segment {
+      display: block;
+      white-space: nowrap;
+      font-size: 0;
+      overflow-x: auto;
+
+      &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        display: none;
+      }
+
+      ion-segment-button.segment-button {
+        display: inline-block;
+        min-width: 100px;
+        width: auto;
+      }
+    }
+
+
+    .planner-area{
+      background: #324065;
+
+
+        .block11{
+          background: #324065 none repeat scroll 0 0;
+          color: #ffffff;
+          width: 100%;
+          padding: 15px 5px;
+          font-size: 20px;
+        }
+
+      .block41{
+        width: 100%;
+        background: #324065;
+        border-top: 1px solid #ffffff;
+        display: inline-block;
+        background: #324065;
+        min-height: 4.4rem;
+        color: #ffffff;
+        text-align: left;
+        font-size: 14px;
+        line-height: 38px;
+        padding-right: 10px;
+
+        .subblock1{
+          float: left;
+
+          ion-img{
+            float: left;
+            padding: 3px;
+
+            img{
+              width: 40px;
+            }
+
+          }
+
+        }
+
+        .subblock2{
+          float: right;
+        }
+
+      }
+    }
+
+
+
+  }
+
+
+}

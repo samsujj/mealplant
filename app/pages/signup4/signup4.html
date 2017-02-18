@@ -12,9 +12,9 @@
     <div class="text-area">
       <p>What is your goal?</p>
 
-      <input type="button" class="btn" value="Lose Fat">
-      <input type="button" class="btn" value="Maintain Weight">
-      <input type="button" class="btn active" value="Build Muscle">
+      <input type="button" class="btn" value="Lose Fat" ngClass="{{(goal == 'lose_fat')?'active':''}}"  (click)="changegoal('lose_fat')">
+      <input type="button" class="btn" value="Maintain Weight" ngClass="{{(goal == 'maintain_weight')?'active':''}}"  (click)="changegoal('maintain_weight')">
+      <input type="button" class="btn" value="Build Muscle" ngClass="{{(goal == 'build_muscle')?'active':''}}"  (click)="changegoal('build_muscle')">
     </div>
 
 

@@ -10,10 +10,10 @@
   <div class="main-content">
 
     <div class="text-area">
-      <p>Which units o measurement do you prefer?  <ion-icon name="help-circle" (click)="helpunit()"></ion-icon></p>
+      <p>Which units of measurement do you prefer?  <ion-icon name="help-circle" (click)="helpunit()"></ion-icon></p>
 
-      <input type="button" class="btn" value="Imperial">
-      <input type="button" class="btn active" value="Metric">
+      <input type="button" ngClass="{{(unittype == 'imperial')?'active':''}}" class="btn" value="Imperial" (click)="changeunit('imperial')">
+      <input type="button" ngClass="{{(unittype == 'metric')?'active':''}}" class="btn" value="Metric"  (click)="changeunit('metric')">
     </div>
 
 

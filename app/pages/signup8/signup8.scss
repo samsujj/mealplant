@@ -1,0 +1,100 @@
+.signupcontent2header{
+  .back-button{
+    display: none;
+  }
+}
+
+
+.signupcontent8 {
+  background: rgba(0, 0, 0, .6) url("../../images/home_back.jpg") no-repeat center;
+  background-size: cover;
+  padding: 0;
+  scroll-content {
+    padding: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .text-area{
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px 10px;
+    p{
+      color: #FFFFFF;
+      font-size: 16px;
+      margin: 0 0 20px;
+    }
+
+    .item {
+      background: none;
+      color: #FFFFFF;
+
+      ion-label{
+        color: #FFFFFF;
+      }
+
+      .text-input{
+        text-align: right;
+      }
+
+    }
+
+    .showbtn{
+      width: 80%;
+      display: block;
+      margin: 40px auto;
+      font-size: 20px;
+      border-radius : 0;
+      background: #68e911;
+      color: #FFFFFF;
+      box-shadow: none;
+      line-height: 35px;
+      border: none;
+    }
+
+    .innerdiv1{
+
+      padding: 10px 0;
+
+      p{
+        font-size: 18px;
+      }
+
+      .item{
+        border-top: none;
+        padding: 0;
+      }
+
+      ion-segment{
+        padding-bottom: 15px;
+      }
+
+
+      .segment-button{
+
+        width: auto;
+        display: block;
+        margin: 0 5px;
+        font-size: 15px;
+        border-radius : 0;
+        background: #FFFFFF;
+        box-shadow: none;
+        min-height: auto;
+        float: left;
+        border: none;
+        padding: 0 15px;
+        color: #000000;
+      }
+      .segment-activated{
+        background: #68e911;
+        color: #FFFFFF;
+      }
+
+    }
+
+
+
+  }
+
+
+
+}
+

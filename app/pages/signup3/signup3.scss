@@ -16,39 +16,75 @@
 
   .text-area{
     background: rgba(0, 0, 0, 0.7);
-    margin-top: 20px;
-    padding: 15px 10px;
+    padding: 30px 10px 15px 10px;
     p{
       color: #FFFFFF;
       font-size: 20px;
       margin: 0;
       text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .item {
+      background: none;
+      color: #FFFFFF;
+
+      ion-label{
+        color: #FFFFFF;
+      }
+
+      .text-input{
+        text-align: right;
+      }
+
     }
 
     .btnarea{
-      display: inline-block;
-      .btn{
-        width: 40%;
-        float: left;
-        font-size: 20px;
-        border-radius : 0;
-        background: #FFFFFF;
-        box-shadow: none;
-        line-height: 35px;
-        border: none;
-      }
-      .btn:hover{
-        background: #FFFFFF;
-      }
-      .active{
-        background: #68e911;
+      padding: 15px 5px 0;
+      text-align: center;
+      display: block;
+
+      ion-label{
         color: #FFFFFF;
+        padding: 0;
+        font-size: 16px;
+        text-align: left;
       }
-      .active:hover{
-        background: #68e911;
-        color: #FFFFFF;
+
+      .btnsubare{
+        display: inline-block;
+        margin: 0 auto;
+
+        .btn{
+          width: auto;
+          display: block;
+          margin: 15px 15px;
+          font-size: 15px;
+          border-radius : 0;
+          background: #FFFFFF;
+          box-shadow: none;
+          line-height: 35px;
+          float: left;
+          border: none;
+          padding: 0 15px;
+        }
+        .btn:hover{
+          background: #FFFFFF;
+        }
+        .active{
+          background: #68e911;
+          color: #FFFFFF;
+        }
+        .active:hover{
+          background: #68e911;
+          color: #FFFFFF;
+        }
+
+
       }
+
     }
+
 
   }
 

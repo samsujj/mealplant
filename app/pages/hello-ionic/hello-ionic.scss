@@ -266,5 +266,81 @@
 
 
 
+.menu-inner{ background: #FB4C34;
+
+  .scroll-content{background: #FB4C34;
+
+    .item-md{ margin: 0; padding: 0; border: none!important;
 
 
+
+      background: rgba(76,76,76,1);
+      background: -moz-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(28,28,28,1) 50%, rgba(19,19,19,1) 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(76,76,76,1)), color-stop(50%, rgba(28,28,28,1)), color-stop(100%, rgba(19,19,19,1)));
+      background: -webkit-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(28,28,28,1) 50%, rgba(19,19,19,1) 100%);
+      background: -o-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(28,28,28,1) 50%, rgba(19,19,19,1) 100%);
+      background: -ms-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(28,28,28,1) 50%, rgba(19,19,19,1) 100%);
+      background: linear-gradient(to bottom, rgba(76,76,76,1) 0%, rgba(28,28,28,1) 50%, rgba(19,19,19,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=0 );
+
+
+      text-align: center; color: #fff; text-transform: uppercase; text-shadow: 0 1px 2px #888;
+    }
+
+    .input-wrapper{ padding: 0 10px;border: none;}
+  }
+
+}
+
+.list-md .item-block .item-inner{ border: none;}
+
+
+
+.menu-inner{
+
+  .toolbar-background{
+    background: rgba(76,76,76,1);
+    background: -moz-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(28,28,28,1) 50%, rgba(19,19,19,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(76,76,76,1)), color-stop(50%, rgba(28,28,28,1)), color-stop(100%, rgba(19,19,19,1)));
+    background: -webkit-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(28,28,28,1) 50%, rgba(19,19,19,1) 100%);
+    background: -o-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(28,28,28,1) 50%, rgba(19,19,19,1) 100%);
+    background: -ms-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(28,28,28,1) 50%, rgba(19,19,19,1) 100%);
+    background: linear-gradient(to bottom, rgba(76,76,76,1) 0%, rgba(28,28,28,1) 50%, rgba(19,19,19,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=0 );
+
+  }
+
+  .toolbar-title{
+    color: #fff; text-transform: uppercase; text-shadow: 0 1px 2px #888;
+  }
+
+  ion-content{
+    background: #282828;
+
+
+    .item{
+
+
+      background: rgba(108,255,3,1);
+      background: -moz-linear-gradient(top, rgba(108,255,3,1) 0%, rgba(19,161,11,1) 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(108,255,3,1)), color-stop(100%, rgba(19,161,11,1)));
+      background: -webkit-linear-gradient(top, rgba(108,255,3,1) 0%, rgba(19,161,11,1) 100%);
+      background: -o-linear-gradient(top, rgba(108,255,3,1) 0%, rgba(19,161,11,1) 100%);
+      background: -ms-linear-gradient(top, rgba(108,255,3,1) 0%, rgba(19,161,11,1) 100%);
+      background: linear-gradient(to bottom, rgba(108,255,3,1) 0%, rgba(19,161,11,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6cff03', endColorstr='#13a10b', GradientType=0 );
+
+
+      color: #fff;
+
+      padding-left: 0;
+
+      .item-inner{
+        padding-left: 15px;
+        font-weight: bold;
+      }
+
+    }
+  }
+
+}

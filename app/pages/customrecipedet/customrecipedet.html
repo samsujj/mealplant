@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title class="innerheader">{{recipetitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content class="has-header">
+  <div class="container-fluid mainwrapper">
+
+    <div class="imgblock" [style.backgroundImage]=" 'url('+imagepath+')'"></div>
+    <div class="addimagblock"><input type="button" value="Add Image" (click)="addPhoto()"></div>
+
+    <div class="infodet" *ngIf="recipedetails">
+      <div class="infoleft">
+        <ul>
+          <li>Prep: {{recipedetails.preptime}} mins</li>
+          <li>Cook: {{recipedetails.cooktime}} mins</li>
+          <li *ngIf="addeduser">Added By: {{addeduser}}</li>
+        </ul>
+      </div>
+      <div class="inforight">
+        <ul>
+          <li>Orig yields : {{recipedetails.servingsize}} {{recipedetails.servingtype}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ingarea" *ngIf="ingredientsno">
+      <ion-label>Nutrition</ion-label>
+      <div class="block3 block31">
+
+        <div class="left-div1">
+          <div class="list-div">
+            <div class="left-div">{{recipedetails.calories}}</div>
+            <div class="right-div">Calories</div>
+          </div>
+          <div class="list-div">
+            <div class="left-div">{{totalcarbs}}g</div>
+            <div class="right-div">Carbs</div>
+          </div>
+          <div class="list-div">
+            <div class="left-div">{{totalfat}}g</div>
+            <div class="right-div">Fat</div>
+          </div>
+          <div class="list-div">
+            <div class="left-div">{{totalprotein}}g</div>
+            <div class="right-div">Protein</div>
+          </div>
+        </div>
+        <div class="right-div1">
+          <base-chart class="chart" [data]="piechartdata" [chartType]="pieChartType" [options]="pieChartOption"></base-chart>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="ingarea" *ngIf="ingredientsno">
+      <ion-label>Ingredients</ion-label>
+      <div class="block41" *ngFor="let item of foodlist; let i = index">
+        <div class="subblock1">
+          <ion-img src="images/foodicon.ico"></ion-img> {{item.foodname}}
+          <div class="subblock155">{{item.servingsize}} {{item.servingtype}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ingarea" *ngIf="directionsno">
+      <ion-label>Direcion</ion-label>
+      <div class="block41"  *ngFor="let item of directions; let i = index">
+        <div class="subblock155">{{i+1}}. {{item}}</div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+</ion-content>
